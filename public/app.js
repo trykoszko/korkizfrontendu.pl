@@ -12,10 +12,10 @@ const cors = require('cors')
 
 // is development env variable
 const isDev = process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'development'
+const consoleNotify = require('./utils/console-notify')
 
 // import routers
 const indexRouter = require('./routes/index')
-const connectBrowserSync = require('connect-browser-sync')
 
 // initialize our app
 const app = express()
@@ -26,13 +26,13 @@ app.set('view engine', 'hbs')
 
 // logger
 if (isDev) {
-  console.log('✅✅✅ Development server started! ✅✅✅')
+  consoleNotify.devStarted()
   app.use(logger('dev'))
   const browserSync = require('browser-sync')
   const connectBs = require('connect-browser-sync')
   const bsConfig = {
     host: 'localhost',
-    port: 80,
+    port: 3001,
     https: false,
     notify: false,
     open: false,
@@ -44,7 +44,7 @@ if (isDev) {
   const bs = browserSync.create().init(bsConfig)
   app.use(connectBs(bs))
 } else {
-  console.log('✅✅✅ Production server started! ✅✅✅')
+  consoleNotify.prodStarted()
 }
 
 // other middleware
