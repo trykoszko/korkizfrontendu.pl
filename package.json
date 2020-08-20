@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "cross-env NODE_ENV=prod node app.js",
-    "dev": "cross-env NODE_ENV=dev nodemon app.js"
+    "start": "cross-env NODE_ENV=prod node public/app.js",
+    "dev": "cross-env NODE_ENV=dev nodemon public/app.js"
   },
   "main": "app.js",
   "description": "Korki z Front-endu",

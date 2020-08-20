@@ -26,6 +26,7 @@ app.set('view engine', 'hbs')
 
 // logger
 if (isDev) {
+  console.log('✅✅✅ Development server started! ✅✅✅')
   app.use(logger('dev'))
   const browserSync = require('browser-sync')
   const connectBs = require('connect-browser-sync')
@@ -42,6 +43,8 @@ if (isDev) {
   }
   const bs = browserSync.create().init(bsConfig)
   app.use(connectBs(bs))
+} else {
+  console.log('✅✅✅ Production server started! ✅✅✅')
 }
 
 // other middleware
