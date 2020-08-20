@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "cross-env NODE_ENV=prod node public/app.js",
+    "start": "node public/app.js --scripts-prepend-node-path",
     "dev": "cross-env NODE_ENV=dev nodemon public/app.js"
   },
   "main": "app.js",

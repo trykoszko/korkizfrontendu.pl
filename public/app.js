@@ -11,7 +11,7 @@ const sassMiddleware = require('node-sass-middleware')
 const cors = require('cors')
 
 // is development env variable
-const isDev = process.env.NODE_ENV === 'dev'
+const isDev = process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'development'
 
 // import routers
 const indexRouter = require('./routes/index')
@@ -65,8 +65,7 @@ app.use(express.static(path.join(__dirname, 'static')))
 // routes
 app.use('/', indexRouter)
 
-// set prod or dev port for the app
-app.listen(isDev ? process.env.PORT_DEV : process.env.PORT_PROD)
+app.listen(isDev ? process.env.PORT_DEV : process.env.PORT)
 
 // handle errors
 app.use(function(req, res, next) {
