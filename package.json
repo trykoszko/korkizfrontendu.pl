@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node public/app.js --scripts-prepend-node-path",
+    "start": "gulp compile && node public/app.js --scripts-prepend-node-path",
     "dev": "cross-env NODE_ENV=dev gulp"
   },
   "main": "app.js",
