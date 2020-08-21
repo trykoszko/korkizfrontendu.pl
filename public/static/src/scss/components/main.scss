@@ -1,0 +1,13 @@
+.main {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-items: flex-start;
+
+    &__col {
+        flex: 0 1 50%;
+    }
+}

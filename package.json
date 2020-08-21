@@ -9,6 +9,7 @@
   "main": "app.js",
   "description": "Korki z Front-endu",
   "dependencies": {
+    "bulma": "^0.9.0",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "cross-env": "^7.0.2",

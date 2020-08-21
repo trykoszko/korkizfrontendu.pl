@@ -28,7 +28,7 @@ app.set('view engine', 'hbs')
 if (isDev) {
   consoleNotify.devStarted()
   app.use(logger('dev'))
-  app.use(browserSync())
+  // app.use(browserSync())
 } else {
   consoleNotify.prodStarted()
 }

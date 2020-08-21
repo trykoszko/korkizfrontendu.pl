@@ -9,10 +9,11 @@ module.exports = () => {
     https: false,
     notify: false,
     open: false,
-    online: false,
+    online: true,
+    reload: true,
     ui: false,
     proxy: 'localhost:3000',
-    files: [path.join(__dirname, '/**/*.{hbs,css,js,json}')],
+    files: [path.join(__dirname, '/**/*.{hbs,scss,js,json}')],
     debug: true
   }
   const bs = browserSync.create().init(bsConfig)
