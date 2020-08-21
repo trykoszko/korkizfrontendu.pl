@@ -13,6 +13,6 @@ router.get('/', function(req, res, next) {
 })
 
 // POST
-// @todo post
+// @todo post: form with newsletter submit
 
 module.exports = router

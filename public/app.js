@@ -7,8 +7,8 @@ const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
-const sassMiddleware = require('node-sass-middleware')
 const cors = require('cors')
+const browserSync = require('./utils/browser-sync')
 
 // is development env variable
 const isDev = process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'development'
@@ -28,21 +28,7 @@ app.set('view engine', 'hbs')
 if (isDev) {
   consoleNotify.devStarted()
   app.use(logger('dev'))
-  const browserSync = require('browser-sync')
-  const connectBs = require('connect-browser-sync')
-  const bsConfig = {
-    host: 'localhost',
-    port: 3001,
-    https: false,
-    notify: false,
-    open: false,
-    online: false,
-    ui: false,
-    proxy: 'localhost:3000',
-    files: [path.join(__dirname, '/**/*.{hbs,html,css,js,json}')]
-  }
-  const bs = browserSync.create().init(bsConfig)
-  app.use(connectBs(bs))
+  app.use(browserSync())
 } else {
   consoleNotify.prodStarted()
 }
@@ -54,18 +40,13 @@ app.use(cookieParser())
 app.use(cors())
 
 // static assets
-app.use(sassMiddleware({
-  src: path.join(__dirname),
-  dest: path.join(__dirname),
-  indentedSyntax: false,
-  sourceMap: true
-}))
-app.use(express.static(path.join(__dirname, 'static')))
+app.use('/static', express.static(path.join(__dirname, 'static')))
 
 // routes
 app.use('/', indexRouter)
 
-app.listen(isDev ? process.env.PORT_DEV : process.env.PORT)
+// set port
+app.listen(isDev ? process.env.PORT_DEV : (process.env.PORT ? process.env.PORT : process.env.PORT_PROD))
 
 // handle errors
 app.use(function(req, res, next) {

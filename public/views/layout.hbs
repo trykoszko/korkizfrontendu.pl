@@ -2,9 +2,26 @@
 <html>
   <head>
     <title>{{title}}</title>
-    <link rel='stylesheet' href='/static/css/style.css' />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel='stylesheet' href='/static/build/bundle.css' />
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico" />
   </head>
   <body>
-    {{{body}}}
+    <main class="main">
+      <div class="main__col banner" style="background-image:url('/static/img/bg.jpeg');">
+        <h1 class="banner__title">
+          Korki z Front-endu
+        </h1>
+        <h3 class="banner__subtitle">
+          Michał Trykoszko
+        </h3>
+      </div>
+      <div class="main__col main__col--wide content">
+        {{{body}}}
+      </div>
+    </main>
+    <script src="/static/build/app.js"></script>
   </body>
 </html>

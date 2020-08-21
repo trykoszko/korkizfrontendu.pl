@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./public/static/src/scss/index.scss"],"names":[],"mappings":"AAEA,KACE,aAHoB,CAIpB,sBAAuB,CAEvB,UAAW","file":"bundle.css","sourcesContent":["$body-color: slateblue;\n\nbody {\n  color: $body-color;\n  font-family: sans-serif;\n\n  color: blue;\n}\n"],"sourceRoot":""}
