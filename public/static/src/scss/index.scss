@@ -1,10 +1,73 @@
 @import 'bulma';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@800&display=swap');
 
 $body-color: slateblue;
+$s: 10px;
+
+$font-default: 'Roboto', 'Arial', sans-serif;
+$font-bold: 'Work Sans', 'Arial', sans-serif;
 
 body {
   color: $body-color;
-  font-family: sans-serif;
+  font-family: $font-default
 }
 
 @import 'components/main';
+
+.banner {
+  padding: $s * 4;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+
+  &__title,
+  &__subtitle {
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
+  &__icon {
+    width: $s * 6;
+    height: auto;
+  }
+  &__title {
+    font-size: 3rem;
+    font-family: $font-bold;
+  }
+  &__subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+
+  &__header,
+  &__main,
+  &__footer {
+    width: 100%;
+  }
+  &__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+
+.nav {
+
+  &__list {
+    padding: $s * 2 0;
+    margin: 0 $s * 2;
+  }
+}
