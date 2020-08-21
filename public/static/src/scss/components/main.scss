@@ -3,15 +3,23 @@
     height: 100vh;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: stretch;
     justify-items: flex-start;
 
+    @media screen and (min-width: 1280px) {
+        flex-direction: row;
+    }
+
     &__col {
-        flex: 0 1 50%;
+        @media screen and (min-width: 1280px) {
+            flex: 0 1 50%;
+        }
 
         &--wide {
-            flex: 0 1 70%;
+            @media screen and (min-width: 1280px) {
+                flex: 0 1 70%;
+            }
         }
     }
 }

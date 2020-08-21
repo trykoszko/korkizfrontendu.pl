@@ -1,7 +1,7 @@
 @import 'bulma';
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@800&display=swap');
 
-$body-color: slateblue;
+$body-color: #1F2226;
 $s: 10px;
 
 $font-default: 'Roboto', 'Arial', sans-serif;
@@ -15,6 +15,9 @@ body {
 @import 'components/main';
 
 .banner {
+  width: 100%;
+  height: auto;
+
   padding: $s * 4;
 
   display: flex;
@@ -25,6 +28,15 @@ body {
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
+
+  @media screen and (min-width: 1280px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 40%;
+    height: 100vh;
+  }
 
   &__title,
   &__subtitle {
@@ -51,6 +63,10 @@ body {
   align-items: stretch;
   justify-content: flex-start;
 
+  @media screen and (min-width: 1280px) {
+    margin-left: 40%;
+  }
+
   &__header,
   &__main,
   &__footer {
@@ -62,12 +78,46 @@ body {
     align-items: center;
     justify-content: flex-start;
   }
+  &__main {
+    padding: $s * 4;
+  }
 }
 
-.nav {
+.content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $font-bold;
+    margin-top: $s * 3;
+  }
+  .card {
+    &__title {
+      margin: 0;
+    }
+  }
+}
 
-  &__list {
-    padding: $s * 2 0;
-    margin: 0 $s * 2;
+.schedule {
+  margin-top: $s * 3;
+  margin-bottom: $s * 4;
+
+  &__item {
+
+    @media screen and (min-width: 1280px) {
+      max-width: 50%;
+    }
+  }
+}
+
+.card {
+
+  &__title {
+    margin: 0;
+  }
+  &__content {
+    padding: $s * 2;
   }
 }
