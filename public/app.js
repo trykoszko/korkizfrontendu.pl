@@ -8,7 +8,6 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const cors = require('cors')
-const browserSync = require('./utils/browser-sync')
 
 // is development env variable
 const isDev = process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'development'
@@ -28,7 +27,6 @@ app.set('view engine', 'hbs')
 if (isDev) {
   consoleNotify.devStarted()
   app.use(logger('dev'))
-  // app.use(browserSync())
 } else {
   consoleNotify.prodStarted()
 }
