@@ -8,13 +8,15 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const cors = require('cors')
-const secure = require('express-force-https')
+
+// custom middleware
+const forceHTTPS = require('./middleware/require-https')
+const consoleNotify = require('./middleware/console-notify')
 
 // is development env variable
 const isDev = process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'development'
-const consoleNotify = require('./middleware/console-notify')
 
-// import routers
+// routers
 const indexRouter = require('./routes/index')
 
 // initialize our app
@@ -24,12 +26,11 @@ const app = express()
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
 
-// logger
 if (isDev) {
   consoleNotify.devStarted()
   app.use(logger('dev'))
 } else {
-  app.use(secure)
+  app.use(forceHTTPS)
   consoleNotify.prodStarted()
 }
 
