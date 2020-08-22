@@ -8,6 +8,7 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const cors = require('cors')
+const secure = require('express-force-https')
 
 // is development env variable
 const isDev = process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'development'
@@ -28,6 +29,7 @@ if (isDev) {
   consoleNotify.devStarted()
   app.use(logger('dev'))
 } else {
+  app.use(secure)
   consoleNotify.prodStarted()
 }
 
