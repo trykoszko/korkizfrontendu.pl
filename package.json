@@ -1,6 +1,6 @@
 {
   "name": "korkizfrontendu.pl",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "gulp compile && node public/app.js --scripts-prepend-node-path",
