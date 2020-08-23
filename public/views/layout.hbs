@@ -11,13 +11,36 @@
   <body>
     <main class="main">
       <div class="main__col banner" style="background-image:url('/static/img/bg.jpeg');">
-        <img class="banner__icon" src="/static/img/icon_code.svg" />
-        <h1 class="banner__title">
-          Korki z Front-endu
-        </h1>
-        <h3 class="banner__subtitle">
-          Michał Trykoszko
-        </h3>
+        <div class="banner__content">
+          <img class="banner__logo" src="/static/img/icon_code.svg" alt="Korki z Front-endu" />
+          <h1 class="banner__title">
+            <span>Korki z</span> <br><span>Front-endu</span>
+          </h1>
+          {{!-- <h3 class="banner__subtitle">
+            Michał Trykoszko
+          </h3> --}}
+          <ul class="banner__icons">
+            <li class="banner__icon">
+              <a href="https://t2m.io/x01RwXQJ">
+                <img src="../static/img/youtube.svg" alt="Korki z Front-endu - YouTube" />
+              </a>
+            </li>
+            <li class="banner__icon">
+              <a href="https://t2m.io/fotzFSo6">
+                <img src="../static/img/facebook.svg" alt="Korki z Front-endu - Facebook" />
+              </a>
+            </li>
+            {{!-- <li class="banner__icon">
+              <img src="../static/img/instagram.svg" alt="Korki z Front-endu - Instagram" />
+            </li>
+            <li class="banner__icon">
+              <img src="../static/img/linkedin.svg" alt="Korki z Front-endu - LinkedIn" />
+            </li> --}}
+          </ul>
+        </div>
+        <video class="banner__video" autoplay loop muted height="220" width="390">
+          <source src="./static/img/code.mp4" type="video/mp4">
+        </video>
       </div>
       <div class="main__col main__col--wide wrapper">
         {{!-- <div class="wrapper"> --}}

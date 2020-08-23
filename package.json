@@ -16,10 +16,10 @@
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
     "express": "~4.16.1",
-    "express-force-https": "^1.0.0",
     "hbs": "^4.1.1",
     "http-errors": "~1.6.3",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "object-fit-videos": "^1.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.11.0",

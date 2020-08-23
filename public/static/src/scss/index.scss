@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@800&display=swap');
 
 $body-color: #1F2226;
+$alt-color: #ff385d;
+
 $s: 10px;
 
 $font-default: 'Roboto', 'Arial', sans-serif;
@@ -10,6 +12,10 @@ $font-bold: 'Work Sans', 'Arial', sans-serif;
 body {
   color: $body-color;
   font-family: $font-default
+}
+
+a {
+  color: $alt-color;
 }
 
 @import 'components/main';
@@ -29,6 +35,8 @@ body {
   background-position: 50% 50%;
   background-repeat: no-repeat;
 
+  position: relative;
+
   @media screen and (min-width: 1280px) {
     position: fixed;
     top: 0;
@@ -38,22 +46,99 @@ body {
     height: 100vh;
   }
 
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 0;
+
+    height: 100%;
+    width: auto;
+
+    object-fit: cover;
+    object-position: left center;
+    font-family: 'object-fit: cover; object-position: left center';
+  }
+  &__content {
+    z-index: 1;
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-items: flex-start;
+  }
   &__title,
   &__subtitle {
     color: white;
     margin: 0;
     padding: 0;
   }
-  &__icon {
+  &__logo {
     width: $s * 6;
     height: auto;
   }
   &__title {
     font-size: 3rem;
     font-family: $font-bold;
+    line-height: .9;
+
+    margin: $s * 1.5 0 $s * 4.5 0;
+
+    @media screen and (min-width: 1280px) {
+      font-size: 5rem;
+    }
+
+    span {
+      position: relative;
+
+      &:before {
+        content: '';
+
+        position: absolute;
+        top: $s * 3;
+        left: -$s / 2;
+
+        width: calc(100% + #{$s});
+        height: calc(60% - #{$s});
+
+        background-color: $alt-color;
+
+        z-index: -1;
+
+        @media screen and (min-width: 1280px) {
+          top: $s * 4.5;
+          left: -$s * 1.5;
+
+          width: calc(100% + #{$s * 3});
+        }
+      }
+    }
   }
   &__subtitle {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+  }
+  &__icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    margin-top: auto;
+  }
+  &__icon {
+    width: $s * 3.2;
+    height: $s * 3.2;
+
+    margin-right: $s * 1.5;
+
+    transition: all .2s ease-in;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
 
@@ -93,6 +178,9 @@ body {
     font-family: $font-bold;
     margin-top: $s * 3;
   }
+  h2:not(:first-child) {
+    margin-top: 4rem;
+  }
   .card {
     &__title {
       margin: 0;
@@ -104,20 +192,41 @@ body {
   margin-top: $s * 3;
   margin-bottom: $s * 4;
 
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-items: flex-start;
+  flex-wrap: wrap;
+
   &__item {
+    flex: 0 1 100%;
+
+    margin-bottom: $s * 3;
 
     @media screen and (min-width: 1280px) {
-      max-width: 50%;
+      flex: 0 1 45%;
+
+      margin-right: 5%;
+      margin-bottom: 0;
     }
   }
 }
 
 .card {
 
+  &--next {
+    .card__title {
+      color: $alt-color;
+    }
+  }
   &__title {
     margin: 0;
   }
   &__content {
     padding: $s * 2;
   }
+}
+
+.copyright {
+  margin-top: 4rem;
 }
