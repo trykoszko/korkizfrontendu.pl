@@ -3,7 +3,7 @@ const nodemon = require('gulp-nodemon')
 const browserSync = require('browser-sync')
 const reload = browserSync.reload
 const webpack = require('webpack-stream')
-const webpackConfig = require('./public/static/webpack/webpack.config.prod.js')
+const webpackConfig = require('./webpack/webpack.config.prod.js')
 
 gulp.task('compile', function () {
   console.log(' ')
@@ -49,7 +49,7 @@ gulp.task('nodemon', function (cb) {
     })
 })
 
-gulp.task('browser-sync', gulp.series('nodemon', function() {
+gulp.task('browser-sync', gulp.parallel('nodemon', function() {
   browserSync({
     proxy: "localhost:3000",
     port: 2137,
@@ -59,5 +59,5 @@ gulp.task('browser-sync', gulp.series('nodemon', function() {
 }))
 
 gulp.task('default', gulp.parallel('browser-sync', function () {
-  gulp.watch(['./public/static/**/*.{js,scss,hbs}'], reload)
+  gulp.watch(['./public/static/**/*.{hbs,js,scss}'], reload)
 }))
