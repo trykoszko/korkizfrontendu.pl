@@ -52,8 +52,7 @@ module.exports = {
                     subject: 'Dziękuję za rejestrację na korkizfrontendu.pl',
                     replyTo: process.env.ADMIN_EMAIL,
                     html: `
-                        <h4>Cześć!</h4>
-                        <br>
+                        <h2>Cześć!</h2>
                         Dzięki za rejestrację na Korkach z Front-endu!
                         <br><br>
                         W niedługim czasie dostaniesz ode mnie e-maile z informacjami nt. szkoleń.
@@ -81,8 +80,7 @@ module.exports = {
                     subject: 'Nowa rejestracja na Korkizfrontendu.pl',
                     replyTo: email,
                     html: `
-                        <h4>Cześć</h4>
-                        <br>
+                        <h2>Cześć</h2>
                         <a href="mailto:${email}">${email}</a> [ID: ${id}]
                         <br><br>
                         właśnie zarejestrował się na Korkach.

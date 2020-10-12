@@ -30,7 +30,7 @@ const frontPath = path.join(__dirname, '../', 'front/public')
 app.use(express.static(frontPath))
 
 const db = require('./server/models')
-if (process.env.ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
   db.sequelize.sync({ force: true }).then(() => {
     console.log('Drop and re-sync db.')
   })

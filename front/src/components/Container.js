@@ -22,10 +22,11 @@ const StyledContainer = styled.div`
     ${props => css`align-items: ${props.alignItems ? props.alignItems : 'flex-start'};`}
     ${props => css`justify-content: ${props.justifyContent ? props.justifyContent : 'flex-start'};`}
 
-    ${props => css`padding-top: ${theme.s(props.py)}; padding-bottom: ${theme.s(props.py)};`}
-    // @media ${above.desktop} {
-    //     max-width: 1140px;
-    // }
+    ${props => css`padding-top: ${theme.s(props.py / 4)}; padding-bottom: ${theme.s(props.py / 4)};`}
+
+    @media ${above.desktop} {
+        ${props => css`padding-top: ${theme.s(props.py)}; padding-bottom: ${theme.s(props.py)};`}
+    }
 `
 
 const Container = ({ children, height, flexDirection, alignItems, justifyContent, py, narrow }) => {

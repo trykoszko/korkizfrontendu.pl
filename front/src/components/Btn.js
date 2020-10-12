@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { theme } from '../constants'
+import { above } from '../helpers/breakpoints'
 
 const StyledBtn = styled.button`
     background-color: ${theme.colorOrange};
@@ -13,10 +14,14 @@ const StyledBtn = styled.button`
 
     border-radius: ${theme.borderRadius.small};
 
-    ${props => props.width ? `width: ${props.width}` : ''};
+    padding: ${theme.s(2)};
 
     &:hover {
         background-color: ${theme.colorPrimary};
+    }
+
+    @media ${above.desktop} {
+        ${props => props.width ? `width: ${props.width}` : ''};
     }
 `
 

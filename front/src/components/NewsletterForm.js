@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import axios from 'axios'
 
 import { theme } from '../constants'
+import { above, under } from '../helpers/breakpoints'
 
 import Btn from './Btn'
 import Label from './Label'
@@ -11,8 +12,6 @@ const StyledNewsletterForm = styled.form`
     display: flex;
     flex-direction: column;
 
-    max-width: 90%;
-
     ${props => props.isLoading ? `opacity: .4;` : ``}
 
     input {
@@ -20,8 +19,20 @@ const StyledNewsletterForm = styled.form`
         border-radius: ${theme.borderRadius.small};
 
         padding: ${theme.s(2)};
+    }
 
-        margin-right: ${theme.s()};
+    @media ${under.desktop} {
+
+        input {
+            margin-bottom: ${theme.s()};
+        }
+    }
+    @media ${above.desktop} {
+        max-width: 90%;
+
+        input {
+            margin-right: ${theme.s()};
+        }
     }
 `
 
@@ -32,10 +43,17 @@ const StyledNewsletterWrapper = styled.div`
     margin-bottom: ${theme.s()};
 
     ${props => props.isSent ? `display: none;` : ''}
+
+    @media ${under.desktop} {
+        flex-direction: ${props => props.mobileLayout};
+    }
 `
 
 const StyledInput = styled.input`
-    ${props => props.width ? `width: ${props.width}` : ''};
+
+    @media ${above.desktop} {
+        ${props => props.width ? `width: ${props.width}` : ''};
+    }
 `
 
 const StyledRadioGroup = styled.div`
@@ -116,7 +134,7 @@ const NewsletterForm = ({ layout }) => {
             <StyledNewsletterWrapper>
                 {formResponse && <FormResponse response={formResponse} />}
             </StyledNewsletterWrapper>
-            <StyledNewsletterWrapper isSent={isSent}>
+            <StyledNewsletterWrapper mobileLayout="column" isSent={isSent}>
                 <Label srOnly htmlFor="email">
                     Twój e-mail
                 </Label>

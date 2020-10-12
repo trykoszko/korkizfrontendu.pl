@@ -6,6 +6,10 @@ import {
     menuItems
 } from '../constants'
 
+import {
+    above
+} from '../helpers/breakpoints'
+
 import Container from './Container'
 
 const StyledFooter = styled.div`
@@ -38,7 +42,13 @@ const StyledFooterColumn = styled.div`
         line-height: 1.5;
     }
     h4 {
-        flex: 0 1 20%;
+        flex: 0 0 40%;
+    }
+
+    @media ${above.desktop} {
+        h4 {
+            flex: 0 0 20%;
+        }
     }
 `
 
@@ -51,16 +61,26 @@ const StyledFooterNav = styled.ul`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 
     font-family: ${theme.monoFont};
 
     li {
         display: block;
 
-        margin: 0;
-        margin-left: ${theme.s(2)};
+        margin: ${theme.s()} ${theme.s(2)} ${theme.s()} 0;
+
         padding: 0;
+    }
+
+    @media ${above.desktop} {
+        justify-content: center;
+
+        li {
+            margin: 0;
+            margin-right: ${theme.s(2)};
+        }
     }
 `
 

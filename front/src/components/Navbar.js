@@ -7,15 +7,16 @@ import {
     menuItems
 } from '../constants'
 
+import {
+    above,
+    under
+} from '../helpers/breakpoints'
+
 import logo from '../../static/logo.svg'
 
 const StyledNavbarWrapper = styled.header`
     width: 100%;
     height: auto;
-
-    position: fixed;
-    top: 0;
-    left: 0;
 
     z-index: 900;
 
@@ -24,17 +25,27 @@ const StyledNavbarWrapper = styled.header`
     background-color: ${theme.colorBeige};
 
     ${props => props.windowScrolled ? `box-shadow: ${theme.boxShadow.small};` : ''}
+
+    @media ${above.desktop} {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
 `
 
 const StyledNavbar = styled.nav`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
 
     width: 100%;
 
     margin: 0;
+
+    @media ${above.desktop} {
+        flex-direction: row;
+    }
 `
 
 const StyledLogoWrapper = styled.a`
@@ -62,6 +73,10 @@ const StyledLogo = styled.img`
 
     margin: 0;
     margin-right: ${theme.s(2)};
+
+    @media ${under.desktop} {
+        max-width: ${props => props.windowScrolled ? 48 : 80}px;
+    }
 `
 
 const StyledLogoDesc = styled.p`
@@ -91,6 +106,10 @@ const StyledLogoDesc = styled.p`
 
             z-index: -1;
         }
+    }
+
+    @media ${under.desktop} {
+        font-size: ${props => props.windowScrolled ? 1 : 1.8}rem;
     }
 `
 
@@ -150,9 +169,9 @@ const StyledMenuItem = styled.li`
 `
 
 const StyledCountdown = styled.p`
-    margin: 0;
+    margin: ${theme.s(2)} 0;
 
-    font-size: .7rem;
+    font-size: .8rem;
 
     text-align: center;
 
@@ -163,6 +182,12 @@ const StyledCountdown = styled.p`
 
         display: block;
         margin-bottom: ${theme.s(-1)};
+    }
+
+    @media ${above.desktop} {
+        margin: 0;
+
+        font-size: .7rem;
     }
 `
 

@@ -9,7 +9,8 @@ import {
 } from '../constants'
 
 import {
-    above
+    above,
+    under
 } from '../helpers/breakpoints'
 
 import bg_hero from '../../static/bg_hero.svg'
@@ -17,7 +18,7 @@ import bg_hero_2 from '../../static/bg_hero_2.svg'
 
 const StyledHero = styled.div`
     width: 100%;
-    height: 100vh;
+    height: 100%;
 
     color: ${theme.colorDefault};
 
@@ -58,7 +59,7 @@ const StyledHeading = styled.h1`
 `
 
 const StyledDesc = styled.div`
-    font-size: .85rem;
+    font-size: 1rem;
     line-height: 1.8;
 
     margin: 0;
@@ -72,6 +73,8 @@ const StyledDesc = styled.div`
 
     @media ${above.desktop} {
         max-width: 90%;
+
+        font-size: .85rem;
     }
 `
 
@@ -88,6 +91,10 @@ const StyledBgImage = styled.img.attrs(props => ({
     ${props => props.mw ? `max-width: ${props.mw}; height: auto;` : ''}
 
     z-index: 9;
+
+    @media ${under.desktop} {
+        display: none;
+    }
 `
 
 const StyledBgColor = styled.div.attrs(props => ({
@@ -110,6 +117,10 @@ const StyledBgColor = styled.div.attrs(props => ({
     height: ${props => props.dimensions};
 
     ${props => props.rounded ? `border-radius: 100%;` : ''}
+
+    @media ${under.desktop} {
+        display: none;
+    }
 `
 
 const StyledStrong = styled.strong`
