@@ -8,6 +8,7 @@ import DMSansBold from '../../static/DMSans-Bold.ttf'
 import Roboto from '../../static/Roboto-Regular.ttf'
 import RobotoItalic from '../../static/Roboto-Italic.ttf'
 import RobotoMono from '../../static/RobotoMono-Regular.ttf'
+import RobotoMonoBold from '../../static/RobotoMono-Bold.ttf'
 
 const GlobalStyle = createGlobalStyle`
     ${normalize}
@@ -40,6 +41,12 @@ const GlobalStyle = createGlobalStyle`
         font-family: RobotoMono;
         src: url(${RobotoMono});
         font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: RobotoMono;
+        src: url(${RobotoMonoBold});
+        font-weight: bold;
         font-style: normal;
     }
 

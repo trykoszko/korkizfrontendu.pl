@@ -6,7 +6,7 @@ import { theme } from '../constants'
 
 const StyledContainer = styled.div`
     width: 100%;
-    max-width: 1140px;
+    max-width: ${props => props.narrow ? `900` : '1140'}px;
 
     ${props => props.height ? `height: ${props.height};` : ''}
 
@@ -22,13 +22,14 @@ const StyledContainer = styled.div`
     ${props => css`align-items: ${props.alignItems ? props.alignItems : 'flex-start'};`}
     ${props => css`justify-content: ${props.justifyContent ? props.justifyContent : 'flex-start'};`}
 
+    ${props => css`padding-top: ${theme.s(props.py)}; padding-bottom: ${theme.s(props.py)};`}
     // @media ${above.desktop} {
     //     max-width: 1140px;
     // }
 `
 
-const Container = ({ children, height, flexDirection, alignItems, justifyContent }) => {
-    return <StyledContainer height={height} flexDirection={flexDirection} alignItems={alignItems} justifyContent={justifyContent}>{children}</StyledContainer>
+const Container = ({ children, height, flexDirection, alignItems, justifyContent, py, narrow }) => {
+    return <StyledContainer narrow={narrow} py={py} height={height} flexDirection={flexDirection} alignItems={alignItems} justifyContent={justifyContent}>{children}</StyledContainer>
 }
 
 export default Container

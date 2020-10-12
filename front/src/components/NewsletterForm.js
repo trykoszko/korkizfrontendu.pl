@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
 
 import { theme } from '../constants'
 
@@ -12,6 +13,8 @@ const StyledNewsletterForm = styled.form`
 
     max-width: 90%;
 
+    ${props => props.isLoading ? `opacity: .4;` : ``}
+
     input {
         border: none;
         border-radius: ${theme.borderRadius.small};
@@ -23,10 +26,12 @@ const StyledNewsletterForm = styled.form`
 `
 
 const StyledNewsletterWrapper = styled.div`
-    display: flex;
+    display: ${props => props.hidden ? 'none' : 'flex'};
     flex-direction: ${props => props.layout};
 
     margin-bottom: ${theme.s()};
+
+    ${props => props.isSent ? `display: none;` : ''}
 `
 
 const StyledInput = styled.input`
@@ -45,50 +50,109 @@ const StyledRadioGroup = styled.div`
     }
     label {
         font-size: .75rem;
+
+        display: flex;
     }
 
     opacity: .7;
 `
 
+const StyledFormResponse = styled.p`
+    font-size: .8rem;
+
+    padding: ${theme.s()};
+
+    border-radius: 3px;
+
+    background-color: ${props => props.resType ? 'green' : 'red'};
+    color: ${props => props.resType ? 'white' : 'black'};
+`
+
+const FormResponse = ({ response }) => {
+    return <StyledFormResponse resType={response.success}>{response.message}</StyledFormResponse>
+}
+
 const NewsletterForm = ({ layout }) => {
+    const [isLoading, setIsLoading] = useState(false)
+    const [isSent, setIsSent] = useState(false)
+    const [formResponse, setFormResponse] = useState('')
+
+    const emailRef = React.createRef()
+    const checkboxRef_1 = React.createRef()
+    const checkboxRef_2 = React.createRef()
 
     const handleSubmission = async e => {
         e.preventDefault()
         setIsLoading(true)
-        console.log('isLoading1', isLoading)
-        console.log('handleSubmission')
-        console.log('e', e)
-
-        setTimeout(() => {
-            setIsLoading(false)
-            console.log('isLoading2', isLoading)
-        }, 10000)
+        axios.post('http://localhost/subscribe/newsletter', {
+            email: emailRef.current.value,
+            terms_accepted: checkboxRef_1.current.checked,
+            user_interested: checkboxRef_2.current.checked
+        })
+            .then(res => {
+                setTimeout(() => {
+                    setIsLoading(false)
+                    setIsSent(true)
+                    setFormResponse({
+                        success: true,
+                        message: res.data.message,
+                        err: res.data.err
+                    })
+                }, 1000)
+            })
+            .catch(err => {
+                setIsLoading(false)
+                setIsSent(false)
+                setFormResponse({
+                    success: false,
+                    message: '',
+                    err: err
+                })
+            })
     }
 
-    const [isLoading, setIsLoading] = useState(false)
-
     return (
-        <StyledNewsletterForm layout={layout} action="/submission/newsletter" method="POST" onSubmit={handleSubmission}>
+        <StyledNewsletterForm isLoading={isLoading} layout={layout} onSubmit={handleSubmission}>
             <StyledNewsletterWrapper>
+                {formResponse && <FormResponse response={formResponse} />}
+            </StyledNewsletterWrapper>
+            <StyledNewsletterWrapper isSent={isSent}>
                 <Label srOnly htmlFor="email">
                     Twój e-mail
                 </Label>
-                <StyledInput width="70%" type="email" name="email" placeholder="Wpisz e-mail" required />
+                <StyledInput ref={emailRef} width="70%" type="email" name="email" placeholder="Wpisz e-mail" required />
                 <Btn width="30%" type="submit">
                     Subskrybuj
                 </Btn>
             </StyledNewsletterWrapper>
-            <StyledNewsletterWrapper layout="column">
+            <StyledNewsletterWrapper layout="column" isSent={isSent}>
                 <StyledRadioGroup>
-                    <input type="checkbox" name="consent_1" id="consent_1" required />
-                    <Label htmlFor="consent_1">
-                        Agencies around the world are moving to the digital agencies. So, It is high time to introduce your agency digitaly. We respect our customer opinions and deals with them with perfect wireframing.
+                    <input
+                        aria-label="Akceptuję regulamin"
+                        aria-required="true"
+                        ref={checkboxRef_1}
+                        type="checkbox"
+                        name="terms_accepted"
+                        id="terms_accepted"
+                        required
+                    />
+                    <Label htmlFor="terms_accepted">
+                        <span>
+                            Zapisując się do newslettera wyrażasz zgodę na otrzymywanie informacji o nowościach, produktach i usługach <strong>korkizfrontendu.pl</strong> i <strong>sors Michał Trykoszko</strong> oraz akceptujesz <a href="/regulamin">regulamin</a>
+                        </span>
                     </Label>
                 </StyledRadioGroup>
                 <StyledRadioGroup>
-                    <input type="checkbox" name="consent_1" id="consent_1" required />
-                    <Label htmlFor="consent_1">
-                        Agencies around the world are moving to the digital agencies. So, It is high time to introduce your agency digitaly. We respect our customer opinions and deals with them with perfect wireframing.
+                    <input
+                        ref={checkboxRef_2}
+                        type="checkbox"
+                        name="user_interested"
+                        id="user_interested"
+                    />
+                    <Label htmlFor="user_interested">
+                        <span>
+                            <strong>Jestem wstępnie zainteresowany</strong> szkoleniem i chciałbym uzyskać o nim więcej informacji
+                        </span>
                     </Label>
                 </StyledRadioGroup>
             </StyledNewsletterWrapper>

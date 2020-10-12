@@ -15,17 +15,17 @@ import {
 import bg_hero from '../../static/bg_hero.svg'
 import bg_hero_2 from '../../static/bg_hero_2.svg'
 
-const StyledHero = styled.section`
+const StyledHero = styled.div`
     width: 100%;
     height: 100vh;
 
-    background-color: ${theme.colorBeige};
     color: ${theme.colorDefault};
 
     overflow: hidden;
 `
 
 const StyledHeroContent = styled.div`
+    width: 100%;
     height: 100%;
 
     display: flex;
@@ -46,10 +46,10 @@ const StyledHeroContentWrapper = styled.div`
 `
 
 const StyledHeading = styled.h1`
-    font-size: 2.4em;
+    font-size: 2.1em;
     font-weight: 400;
 
-    line-height: 1.5;
+    line-height: 1.4;
 
     margin: 0;
     margin-bottom: ${theme.s(2)};
@@ -57,13 +57,22 @@ const StyledHeading = styled.h1`
     color: ${theme.colorPrimary};
 `
 
-const StyledDesc = styled.p`
-    line-height: 2.5;
+const StyledDesc = styled.div`
+    font-size: .85rem;
+    line-height: 1.8;
 
     margin: 0;
     margin-bottom: ${theme.s(6)};
 
     max-width: 100%;
+
+    p {
+        margin-bottom: .7rem;
+    }
+
+    @media ${above.desktop} {
+        max-width: 90%;
+    }
 `
 
 const StyledBgImage = styled.img.attrs(props => ({
@@ -146,7 +155,15 @@ const Hero = () => {
                             z doświadczonym mentorem
                         </StyledHeading>
                         <StyledDesc>
-                            Agencies around the world are moving to the digital agencies. So, It is high time to introduce your agency digitaly. We respect our customer opinions and deals with them with perfect wireframing.
+                            <p>
+                                Przeszedłeś kurs lub przeczytałeś książkę o Front-endzie, ale nie wiesz co dalej?
+                            </p>
+                            <p>
+                                <strong>Korki z Front-endu</strong> to innowacyjna formuła nauki tworzenia stron internetowych, która przygotuje Cię do rozpoczęcia pierwszej pracy jako <strong>Junior Front-end Developer</strong>.
+                            </p>
+                            <p>
+                                Zasubskrybuj mój newsletter, aby dowiedzieć się więcej i uzyskać informacje o kolejnej edycji.
+                            </p>
                         </StyledDesc>
                         <NewsletterForm />
                     </StyledHeroContentWrapper>
