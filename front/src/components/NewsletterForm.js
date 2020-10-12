@@ -102,7 +102,7 @@ const NewsletterForm = ({ layout }) => {
     const handleSubmission = async e => {
         e.preventDefault()
         setIsLoading(true)
-        axios.post('https://korkizfrontendu.pl/subscribe/newsletter', {
+        axios.post('http://localhost/subscribe/newsletter', {
             email: emailRef.current.value,
             terms_accepted: checkboxRef_1.current.checked,
             user_interested: checkboxRef_2.current.checked

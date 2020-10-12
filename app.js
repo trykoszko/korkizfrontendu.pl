@@ -42,9 +42,8 @@ if (process.env.NODE_ENV === 'development') {
 
 require('./server/routes')(app)
 
-app.listen(80)
-
 if (process.env.NODE_ENV === 'production') {
+  app.listen(80)
   app.use(forceHTTPS)
 }
 
