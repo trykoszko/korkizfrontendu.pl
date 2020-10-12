@@ -1,15 +1,20 @@
-const NewsletterEntry = require('../models').newsletterEntries
+const fs = require('fs')
+const path = require('path')
 const randomstring = require('randomstring')
+const Handlebars = require('handlebars')
+
+const NewsletterEntry = require('../models').newsletterEntries
+
+const source = fs.readFileSync(path.join(__dirname, '../views/emails', 'email.hbs'))
+const hbs = Handlebars.compile(source.toString())
 
 module.exports = {
-
-    // @todo messages i18n
 
     async add(req, res) {
         if (!req.body.email) {
             res.status(400).send({
                 success: false,
-                message: 'Brak lub nieprawidłowy e-mail ❌'
+                message: 'Błąd: Brak lub nieprawidłowy e-mail'
             })
             return
         }
@@ -17,7 +22,7 @@ module.exports = {
         if (!req.body.terms_accepted) {
             res.status(400).send({
                 success: false,
-                message: 'Nie zaakceptowałeś regulaminu ❌'
+                message: 'Błąd: Brak akceptacji regulaminu'
             })
             return
         }
@@ -28,12 +33,13 @@ module.exports = {
             user_interested: req.body.user_interested
         }
 
-        const mailExists = await NewsletterEntry.findOne({ email: req.body.email })
+        const mailExists = await NewsletterEntry.findOne({ where: { email: req.body.email } })
         if (mailExists) {
             return res
+                .status(200)
                 .send({
                     success: true,
-                    message: 'Twój e-mail jest już w bazie ✔️'
+                    message: 'Podany adres e-mail jest już w naszej bazie danych'
                 })
         }
 
@@ -45,26 +51,20 @@ module.exports = {
                 } = newsletterEntry.dataValues
                 const removalKey = randomstring.generate(10)
                 // client email
-                // @todo cleanup, add hbs
                 transporter.sendMail({
                     from: `Korki z Front-endu <${process.env.ADMIN_EMAIL}>`,
                     to: email,
-                    subject: 'Dziękuję za rejestrację na korkizfrontendu.pl',
+                    subject: 'Dziękuję za rejestrację na Korkach!',
                     replyTo: process.env.ADMIN_EMAIL,
-                    html: `
-                        <h2>Cześć!</h2>
-                        Dzięki za rejestrację na Korkach z Front-endu!
-                        <br><br>
-                        W niedługim czasie dostaniesz ode mnie e-maile z informacjami nt. szkoleń.
-                        <br><br>
-                        Pamiętaj, że w każdej chwili możesz wypisać się z listy mailingowej <a href="${process.env.URL}/unsubscribe/newsletter/${email}/${removalKey}">tutaj</a>.
-                        <br><br><br>
-                        Pozdrawiam,
-                        <br>
-                        Michał
-                        <br>
-                        <a href="${process.env.URL}">korkizfrontendu.pl</a>
-                    `
+                    html: hbs({
+                        message: `
+                            Dziękuję za rejestrację na Korkach z Front-endu!
+                            <br><br>
+                            Wkrótcę zacznę wysyłać Ci informacje odnośnie kolejnej edycji. W międzyczasie możesz <a href="https://t2m.io/fotzFSo6">dołączyć na Facebooku</a>, na <a href="https://t2m.io/v2FaNHR5">Discordzie</a> albo <a href="https://t2m.io/x01RwXQJ">YouTube</a>.
+                            <br><br>
+                            <small>Pamiętaj, że w każdej chwili możesz wypisać się z listy mailingowej <a href="${process.env.URL}/unsubscribe/newsletter/${email}/${removalKey}">tutaj</a>.</small>
+                        `
+                    })
                 }, async err => {
                     let messageSent = true
                     if (err) {
@@ -73,22 +73,20 @@ module.exports = {
                     await newsletterEntry.update({ removal_key: removalKey, email_sent: messageSent, email_sent_date: new Date().toString() })
                 })
                 // admin email
-                // @todo cleanup, add hbs
                 transporter.sendMail({
                     from: `Korki z Front-endu <${process.env.ADMIN_EMAIL}>`,
                     to: process.env.ADMIN_EMAIL,
-                    subject: 'Nowa rejestracja na Korkizfrontendu.pl',
+                    subject: 'Nowa rejestracja na korkizfrontendu.pl',
                     replyTo: email,
-                    html: `
-                        <h2>Cześć</h2>
-                        <a href="mailto:${email}">${email}</a> [ID: ${id}]
-                        <br><br>
-                        właśnie zarejestrował się na Korkach.
-                        <br><br>
-                        Pozdro,
-                        <br>
-                        <a href="${process.env.URL}">korkizfrontendu.pl</a>
-                    `
+                    html: hbs({
+                        message: `
+                            <a href="mailto:${email}">${email}</a>
+                            <br>
+                            właśnie zarejestrował się na Korkach.
+                            <br>
+                            [ID: ${id}]
+                        `
+                    })
                 }, async err => {
                     let messageSent = true
                     if (err) {
@@ -99,7 +97,7 @@ module.exports = {
                         .status(201)
                         .send({
                             success: true,
-                            message: `Dziękuję za zainteresowanie szkoleniem. Twój e-mail został dodany do bazy! ✔️ ${messageSent ? '📧' : ''}`,
+                            message: `Dziękuję za zainteresowanie moim szkoleniem. Podany adres e-mail został dodany do bazy mailingowej!`,
                             err: err
                         })
                 })
@@ -110,7 +108,7 @@ module.exports = {
                     .status(400)
                     .send({
                         success: false,
-                        message: 'Wystąpił błąd podczas rejestracji do newslettera ❌'
+                        message: 'Wystąpił błąd. Podany adres e-mail nie został zarejestrowany w naszej bazie.'
                     })
             })
     },
@@ -122,13 +120,15 @@ module.exports = {
             removalKey
         } = req.params
 
-        const entry = await NewsletterEntry.findOne({ email: email })
+        const entry = await NewsletterEntry.findOne({ where: { email: email } })
         if (!entry) {
             return res
                 .status(400)
-                .send({
+                .render('apiresponse.hbs', {
                     success: false,
-                    message: 'Podany e-mail nie istnieje w bazie danych ❌'
+                    messageType: 'error',
+                    heading: 'Błąd!',
+                    message: 'Podany adres e-mail nie istnieje w naszej bazie danych więc nie został usunięty'
                 })
         }
 
@@ -137,11 +137,14 @@ module.exports = {
             await entry.destroy()
         }
         return res
-            .send({
+            .status(isKeyCorrect ? 200 : 400)
+            .render('apiresponse.hbs', {
                 success: true,
+                messageType: isKeyCorrect ? 'success' : 'error',
+                heading: isKeyCorrect ? 'OK!' : 'Błąd!',
                 message: isKeyCorrect
-                    ? 'Twój e-mail został usunięty z bazy danych korkizfrontendu.pl ✔️'
-                    : 'Klucz weryfikacyjny nie jest poprawny. E-mail nie został usunięty z bazy danych korkizfrontendu.pl ❌'
+                    ? 'Podany adres e-mail został poprawnie usunięty z bazy danych korkizfrontendu.pl. Szkoda!'
+                    : 'Klucz weryfikacyjny nie jest poprawny. Podany adres e-mail NIE został usunięty z bazy danych korkizfrontendu.pl'
             })
     }
 

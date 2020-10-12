@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 import {
@@ -135,9 +136,9 @@ const Footer = ({ currentPath }) => {
     const MenuItem = ({ id, url, title }) => {
         return (
             <StyledFooterNavItem isCurrent={url === currentPath || url + '/' === currentPath} key={id}>
-                <a href={url}>
+                <Link to={url}>
                     <span>{title}</span>
-                </a>
+                </Link>
             </StyledFooterNavItem>
         )
     }
@@ -156,16 +157,16 @@ const Footer = ({ currentPath }) => {
                         <h4>Kontakt</h4>
                         <StyledFooterNav>
                             <li>
-                                <a target="_blank" rel="noreferrer" href="https://www.facebook.com/korkizfrontendu">Facebook</a>
+                                <a target="_blank" rel="noreferrer" href="https://t2m.io/fotzFSo6">Facebook</a>
                             </li>
                             <li>
-                                <a target="_blank" rel="noreferrer" href="https://www.youtube.com/channel/UCQAyRCvoXEgl4mMrVO5P5qQ">YouTube</a>
-                            </li>
-                            <li>
-                                <a href="mailto:trykoszkom@gmail.com">E-mail</a>
+                                <a target="_blank" rel="noreferrer" href="https://t2m.io/x01RwXQJ">YouTube</a>
                             </li>
                             <li>
                                 <a href="https://t2m.io/v2FaNHR5">Discord</a>
+                            </li>
+                            <li>
+                                <a href="mailto:trykoszkom@gmail.com">E-mail</a>
                             </li>
                         </StyledFooterNav>
                     </StyledFooterColumn>

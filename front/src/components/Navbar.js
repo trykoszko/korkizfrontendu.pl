@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Container from './Container'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 import {
     theme,
@@ -206,8 +207,12 @@ const getTimeRemaining = endtime => {
     };
 }
 
-const Countdown = () => {
-    const [remaining, setRemaining] = useState(0)
+const Countdown = ({ remaining }) => {
+    return <StyledCountdown><span>{remaining}</span><br />pozostało do kolejnej edycji Korków!</StyledCountdown>
+}
+
+const Navbar = ({ currentSectionColor, windowScrolled, currentPath }) => {
+    const [remaining, setRemaining] = useState(`-- dni, -- godzin, -- minut i -- sekund`)
     const deadline = '2020-11-06'
     setInterval(() => {
         const {
@@ -219,16 +224,12 @@ const Countdown = () => {
         setRemaining(`${days} dni, ${hours} godzin, ${minutes} minut i ${seconds} sekund`)
     }, 1000)
 
-    return <StyledCountdown><span>{remaining}</span><br />pozostało do kolejnej edycji Korków!</StyledCountdown>
-}
-
-const Navbar = ({ currentSectionColor, windowScrolled, currentPath }) => {
     const MenuItem = ({ id, url, title }) => {
         return (
             <StyledMenuItem isCurrent={url === currentPath || url + '/' === currentPath} key={id}>
-                <a href={url}>
+                <Link to={url}>
                     <span>{title}</span>
-                </a>
+                </Link>
             </StyledMenuItem>
         )
     }
@@ -241,7 +242,7 @@ const Navbar = ({ currentSectionColor, windowScrolled, currentPath }) => {
                         <StyledLogo windowScrolled={windowScrolled} src={logo} alt="Logo" />
                         <StyledLogoDesc windowScrolled={windowScrolled}><span>Korki z</span> <span>Front-endu</span></StyledLogoDesc>
                     </StyledLogoWrapper>
-                    <Countdown />
+                    <Countdown remaining={remaining} />
                     <StyledNav>
                         {menuItems ? menuItems.map(item => <MenuItem key={item.id} id={item.id} isCurrent={item.isCurrent} url={item.url} title={item.title} />) : ''}
                     </StyledNav>
