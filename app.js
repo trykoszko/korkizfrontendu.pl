@@ -4,6 +4,9 @@ const bodyParser = require('body-parser')
 const helmet = require('helmet')
 const path = require('path')
 const cors = require('cors')
+const timeout = require('connect-timeout')
+
+const forceHTTPS = require('./server/middleware/require-https')
 
 require('./server/mailer')
 require('dotenv').config()
@@ -15,6 +18,8 @@ app.use(cors())
 app.use(helmet({
   contentSecurityPolicy: false
 }))
+
+app.use(timeout('10s'))
 
 app.use(logger('dev'))
 
@@ -36,5 +41,11 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 require('./server/routes')(app)
+
+app.listen(80)
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(forceHTTPS)
+}
 
 module.exports = app
