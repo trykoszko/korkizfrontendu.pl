@@ -26,8 +26,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // serve gatsby from static
-const frontPath = path.join(__dirname, '../', 'front/public')
-app.use(express.static(frontPath))
+app.use(express.static('front/public'))
 
 const db = require('./server/models')
 if (process.env.NODE_ENV === 'development') {
