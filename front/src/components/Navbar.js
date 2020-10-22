@@ -27,7 +27,7 @@ const StyledNavbarWrapper = styled.header`
 
     ${props => props.windowScrolled ? `box-shadow: ${theme.boxShadow.small};` : ''}
 
-    @media ${above.desktop} {
+    @media ${above.tablet} {
         position: fixed;
         top: 0;
         left: 0;
@@ -44,7 +44,7 @@ const StyledNavbar = styled.nav`
 
     margin: 0;
 
-    @media ${above.desktop} {
+    @media ${above.tablet} {
         flex-direction: row;
     }
 `
@@ -75,7 +75,7 @@ const StyledLogo = styled.img`
     margin: 0;
     margin-right: ${theme.s(2)};
 
-    @media ${under.desktop} {
+    @media ${under.tablet} {
         max-width: ${props => props.windowScrolled ? 48 : 80}px;
     }
 `
@@ -109,7 +109,7 @@ const StyledLogoDesc = styled.p`
         }
     }
 
-    @media ${under.desktop} {
+    @media ${under.tablet} {
         font-size: ${props => props.windowScrolled ? 1 : 1.8}rem;
     }
 `

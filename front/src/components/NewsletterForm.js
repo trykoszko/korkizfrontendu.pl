@@ -21,13 +21,13 @@ const StyledNewsletterForm = styled.form`
         padding: ${theme.s(2)};
     }
 
-    @media ${under.desktop} {
+    @media ${under.tablet} {
 
         input {
             margin-bottom: ${theme.s()};
         }
     }
-    @media ${above.desktop} {
+    @media ${above.tablet} {
         max-width: 90%;
 
         input {
@@ -44,14 +44,14 @@ const StyledNewsletterWrapper = styled.div`
 
     ${props => props.isSent ? `display: none;` : ''}
 
-    @media ${under.desktop} {
+    @media ${under.tablet} {
         flex-direction: ${props => props.mobileLayout};
     }
 `
 
 const StyledInput = styled.input`
 
-    @media ${above.desktop} {
+    @media ${above.tablet} {
         ${props => props.width ? `width: ${props.width}` : ''};
     }
 `

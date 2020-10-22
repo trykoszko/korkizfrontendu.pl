@@ -6,7 +6,7 @@ import { theme } from '../constants'
 
 const StyledContainer = styled.div`
     width: 100%;
-    max-width: ${props => props.narrow ? `900` : '1140'}px;
+    max-width: ${props => props.narrow ? `900` : '1400'}px;
 
     ${props => props.height ? `height: ${props.height};` : ''}
 
@@ -24,7 +24,7 @@ const StyledContainer = styled.div`
 
     ${props => css`padding-top: ${theme.s(props.py / 4)}; padding-bottom: ${theme.s(props.py / 4)};`}
 
-    @media ${above.desktop} {
+    @media ${above.tablet} {
         ${props => css`padding-top: ${theme.s(props.py)}; padding-bottom: ${theme.s(props.py)};`}
     }
 `

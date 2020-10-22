@@ -8,9 +8,9 @@ const StyledFullHeightSection = styled.section`
 
     background-color: ${props => props.bg};
 
-    @media ${above.desktop} {
+    /* @media ${above.desktop} {
         height: 100vh;
-    }
+    } */
 `
 
 const FullHeightSection = ({ children, bg }) => <StyledFullHeightSection bg={bg}>{children}</StyledFullHeightSection>

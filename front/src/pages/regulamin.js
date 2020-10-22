@@ -12,8 +12,8 @@ export default function Regulamin({ path }) {
     <>
       <Layout>
         <AutoHeightSection bg={theme.colorBeige}>
-          <Container narrow={true} py="10" flexDirection="column" alignItems="stretch" justifyContent="flex-start">
-            <ContentContainer>
+          <Container narrow={true} py="9" flexDirection="column" alignItems="stretch" justifyContent="flex-start">
+            <ContentContainer pyDesktop="2">
               <h1>Regulamin</h1>
               <br />
               <h2>Twoje dane</h2>
