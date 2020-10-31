@@ -1,19 +1,18 @@
 import React from "react"
+import { Router } from "@reach/router"
 
-import { theme } from '../constants'
+import Regulamin from './regulamin'
+import Home from './home'
 
-import Layout from '../components/Layout'
-import FullHeightSection from '../components/FullHeightSection'
-import Hero from '../components/Hero'
+export default function index({ path }) {
+  const NewsletterModalContext = React.createContext({ isModalOpen: false })
 
-export default function Home({ path }) {
   return (
     <>
-      <Layout>
-        <FullHeightSection bg={theme.colorBeige}>
-          <Hero />
-        </FullHeightSection>
-      </Layout>
+      <Router basepath="/">
+        <Home navigate="1" path="/" newsletterModalContext={NewsletterModalContext} />
+        <Regulamin navigate="2" path="/regulamin" newsletterModalContext={NewsletterModalContext} />
+      </Router>
     </>
   )
 }

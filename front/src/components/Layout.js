@@ -1,39 +1,29 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import Typography from 'typography'
+
+import GlobalContextProvider from '../context/GlobalContextProvider'
 
 import { typographyTheme } from '../constants'
 
 import HelmetWrapper from '../components/HelmetWrapper'
 import GlobalStyle from '../components/GlobalStyle'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-
-const path = require('path')
+// import Navbar from '../components/Navbar.jsx'
+import Footer from '../components/Footer/Footer.jsx'
+import NewsletterModal from '../components/NewsletterModal/NewsletterModal.jsx'
 
 const typography = new Typography(typographyTheme)
 typography.injectStyles()
 
-export default function Layout({ children }) {
-    const [scrolled, setScrolled] = useState(false)
-    const [scrollTop, setScrollTop] = useState(0)
-
-    useEffect(() => {
-        const onScroll = e => {
-        setScrollTop(window.scrollY)
-        setScrolled(window.scrollY > 0)
-        }
-        window.addEventListener('scroll', onScroll)
-
-        return () => window.removeEventListener('scroll', onScroll)
-    }, [scrollTop])
-
+export default function Layout({ newsletterModalContext, currentPath, children }) {
+    console.log('layout', newsletterModalContext)
     return (
-        <>
+        <GlobalContextProvider>
             <GlobalStyle />
             <HelmetWrapper />
-            <Navbar currentPath={path} windowScrolled={scrolled} />
+            <NewsletterModal newsletterModalContext={newsletterModalContext} />
+            {/* <Navbar currentPath={currentPath} /> */}
             {children}
-            <Footer currentPath={path} />
-        </>
+            <Footer currentPath={currentPath} />
+        </GlobalContextProvider>
     )
 }

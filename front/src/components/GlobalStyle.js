@@ -5,8 +5,6 @@ import { theme } from '../constants'
 
 import DMSans from '../../static/DMSans-Regular.ttf'
 import DMSansBold from '../../static/DMSans-Bold.ttf'
-import Roboto from '../../static/Roboto-Regular.ttf'
-import RobotoItalic from '../../static/Roboto-Italic.ttf'
 import RobotoMono from '../../static/RobotoMono-Regular.ttf'
 import RobotoMonoBold from '../../static/RobotoMono-Bold.ttf'
 
@@ -24,18 +22,6 @@ const GlobalStyle = createGlobalStyle`
         src: url(${DMSansBold});
         font-weight: bold;
         font-style: normal;
-    }
-    @font-face {
-        font-family: Roboto;
-        src: url(${Roboto});
-        font-weight: normal;
-        font-style: normal;
-    }
-    @font-face {
-        font-family: Roboto;
-        src: url(${RobotoItalic});
-        font-weight: normal;
-        font-style: italic;
     }
     @font-face {
         font-family: RobotoMono;
@@ -61,18 +47,25 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         color: ${theme.colorDefault};
+
+        font-family: ${theme.defaultFont};
     }
 
     a {
         color: ${theme.colorPrimary};
         text-decoration: none;
 
-        &:visited, &:hover, &:focus {
+        /* &:visited, &:hover, &:focus {
             color: ${theme.colorDefault};
-        }
+        } */
         &:hover {
             text-decoration: underline;
         }
+    }
+
+    p,
+    ul {
+        font-size: 1.23rem;
     }
 `
 
