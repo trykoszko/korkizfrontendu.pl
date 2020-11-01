@@ -57,7 +57,7 @@ export const theme = {
                 ` : ''}
 
                 @media ${above.tablet} {
-                    height: ${isStaticHeight ? theme.s() : '45%'};
+                    height: ${isStaticHeight ? '45%' : '45%'};
                 }
             }
         ${desktopOnly ? `}` : ''}
