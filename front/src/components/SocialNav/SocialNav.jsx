@@ -14,7 +14,7 @@ const SocialNav = ({ children, srOnly, htmlFor }) => {
         <StyledSocialNav>
             {socialMenuItems.map(item => (
                 <StyledSocialNavItem key={item.id}>
-                    <a target="_blank" rel="noreferer" href={item.url}>
+                    <a target="_blank" rel="noreferrer" href={item.url}>
                         {item.title}
                     </a>
                 </StyledSocialNavItem>

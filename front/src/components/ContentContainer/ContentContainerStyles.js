@@ -34,6 +34,16 @@ export const StyledContentContainer = styled.div`
         margin-bottom: 6%;
     } */
 
+    a {
+        border-bottom: 2px solid ${theme.colorPrimary};
+
+        &:hover {
+            text-decoration: none;
+
+            border-color: ${theme.colorOrange};
+        }
+    }
+
     @media ${above.tablet} {
         ${props => css`padding-top: ${theme.s(props.pyDesktop)}; padding-bottom: ${theme.s(props.pyDesktop)};`}
     }

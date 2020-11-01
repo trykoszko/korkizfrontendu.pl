@@ -66,7 +66,7 @@ const NewsletterForm = ({ layout }) => {
                     </StyledStrong>
                 </h3>
                 <p>
-                    Jeżeli formuła <strong>Korków z Front-endu</strong> wydaje Ci się interesująca, zapisz się do newslettera, a już wkrótce dostaniesz informacje o planowanym starcie programu!
+                    Jeżeli formuła <strong>Korków z Front-endu</strong> wydaje Ci się interesująca, zapisz się do <strong>newslettera</strong>, a już wkrótce dostaniesz informacje o planowanym starcie programu!
                 </p>
             </StyledNewsletterWrapper>
             <StyledNewsletterWrapper mobileLayout="column" isSent={isSent}>

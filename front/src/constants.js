@@ -75,7 +75,7 @@ export const typographyTheme = {
 export const menuItems = [
     {
         id: 1,
-        title: 'Home',
+        title: 'Strona główna',
         url: '/'
     },
     {
@@ -106,7 +106,7 @@ export const socialMenuItems = [
 export const faqAccordionItems = [
     {
         title: 'Co powinienem umieć przed przystąpieniem do programu?',
-        content: 'Dosłownie nic. Program Korki z Front-endu skupia się na nauce od poziomu zerowego.',
+        content: 'Dosłownie nic. Program Korki z Front-endu skupia się na nauce od poziomu zerowego. Jeżeli już coś umiesz - bardzo fajnie! Jednocześnie brak wiedzy Cię nie dyskwalifikuje.',
     },
     {
         title: 'Kiedy rusza nowy rok szkolny?',
@@ -118,15 +118,15 @@ export const faqAccordionItems = [
     },
     {
         title: 'Czy po #korkach będę gotowy na rozpoczęcie pracy w IT?',
-        content: 'Tak. Korki z Front-endu przygotują Cię do pierwszej pracy. Stanowisko, jakie będziesz mógł objąć to Intern Front-end Developer (slicer) lub Junior Front-end Developer (slicer).'
+        content: 'Tak. Korki z Front-endu przygotują Cię do pierwszej pracy. Stanowisko, jakie będziesz mógł objąć to Intern Front-end Developer (slicer) lub Junior Front-end Developer (slicer). Razem przygotujemy też CV oraz dwa cenne projekty do portfolio.'
     },
     {
         title: 'W jaki sposób, jako uczestnik, mogę skonsultować się z grupą lub mentorem?',
-        content: 'Przez cały "rok szkolny" będziesz miał kontakt na komunikatorze Slack i Zoom, zarówno z grupą jak i z mentorem.'
+        content: 'Przez cały "rok szkolny" będziesz miał kontakt na komunikatorze Discord i Zoom, zarówno z grupą jak i z mentorem.'
     },
     {
         title: 'Czy konsultacje z mentorem są płatne?',
-        content: 'Konsultacje z mentorem są darmowe. Dodatkowo co dwa tygodnie w uzgodniony dzień spotykamy się na wideokonferencji i robimy podsumowania grupowe.'
+        content: 'Konsultacje z mentorem są bezpłatne. Dodatkowo co dwa tygodnie w uzgodniony dzień spotykamy się na wideokonferencji i robimy "update", czyli podsumowanie grupowe.'
     },
     {
         title: 'W jakich godzinach mogę kontaktować się z mentorem?',
@@ -136,6 +136,10 @@ export const faqAccordionItems = [
         title: 'Ile trwa program #korków?',
         content: 'Program Korków z Front-endu trwa około 6 miesięcy. W zależności od poziomu grupy, możemy przyspieszyć lub przedłużyć program #korków.'
     },
+    {
+        title: 'Czemu miałbym dołączyć do #korków, zamiast uczyć się samemu?',
+        content: 'Ponieważ program Korków z Front-endu jest sprawdzony i konkretny. Wyznaczona przeze mnie ścieżka oczywiście nie jest jedyną słuszną - ale jest ona sprawdzona. Jest to po prostu ścieżka, którą sam podążałem.'
+    },
     // {
     //     title: 'Ile to tak właściwie kosztuje?',
     //     content: 'Miesiąc uczestnictwa w Korkach z Front-endu kosztuje 299zł. Cały "rok szkolny", czyli 6 miesięcy nauki z góry to kwota 1999zł'
@@ -143,6 +147,10 @@ export const faqAccordionItems = [
     {
         title: 'Czy jeżeli #korki nie będą dla mnie satysfakcjonujące, mogę liczyć na zwrot pieniędzy?',
         content: 'Tak. Od momentu zapisów masz 10 dni na rezygnację z programu z pełnym zwrotem gotówki w przeciągu tygodnia.'
+    },
+    {
+        title: 'Czy nie jestem na to zbyt młody / stary?',
+        content: 'Za młody? Nie! Sam pierwsze kroki w programowaniu stawiałem w wieku ok. 12 lat. Za stary? Nie! Mam znajomych-programistów w przeróżnym wieku, w tym w wieku moich rodziców (mamo, tato, pozdrawiam 💙).'
     },
     {
         title: 'Czy jest możliwe korzystanie z mentoringu, bez udziału w programie?',

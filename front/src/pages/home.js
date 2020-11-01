@@ -24,6 +24,7 @@ import NewsletterToggler from '../components/NewsletterToggler/NewsletterToggler
 import StyledStrong from '../components/StyledStrong/StyledStrong.jsx'
 import SocialNav from '../components/SocialNav/SocialNav.jsx'
 import Accordion from '../components/Accordion/Accordion.jsx'
+import YoutubeVid from '../components/YoutubeVid/YoutubeVid.jsx'
 // import InstagramFeed from '../components/InstagramFeed/InstagramFeed.jsx'
 
 import info from '../../static/info.svg'
@@ -36,9 +37,10 @@ const StyledMentorImageWrapper = styled.div`
 
     padding: 0;
     margin: 0;
+    margin-bottom: ${theme.s(3)};
 
-    @media ${under.smDesktop} {
-        margin-bottom: ${theme.s(3)};
+    @media ${above.smDesktop} {
+        margin-bottom: ${theme.s(6)};
     }
 
     &:after {
@@ -136,7 +138,7 @@ export default function Home({ path }) {
                                     <StyledStrong>Czego się nauczysz</StyledStrong> na #korkach?
                                 </h2>
                                 <p>
-                                    Nie tylko dowiesz się co to za technologie,<br />ale też dowiesz się, jak wykorzystywać je w praktyce!
+                                    Nie tylko dowiesz się co to za technologie.<br />Nauczysz się też wykorzystywać je w praktyce!
                                 </p>
                                 <StyledUl flexDirection="row" justifyContent="center">
                                     {skillsItems
@@ -213,8 +215,8 @@ export default function Home({ path }) {
                                     <StyledStrong>Jak wyglądają</StyledStrong> #korki?
                                 </h2>
                                 <ol>
-                                    <li>rejestracja zostanie otwarta dokładnie <strong>2020-11-06</strong></li>
-                                    <li>po zakończonej rejestracji, otwieramy nowy <i>rok szkolny</i> ;) - dostaniesz ode mnie <strong>materiały oraz instrukcję</strong>, jak z nich korzystać</li>
+                                    <li>rejestracja zostanie otwarta dokładnie <strong>2020-11-14</strong></li>
+                                    <li>po zakończonej rejestracji, otwieramy nowy <i>rok szkolny</i> 😃 - dostaniesz ode mnie <strong>materiały oraz instrukcję</strong>, jak z nich korzystać</li>
                                     <li>mając już materiały, <strong>zdzwaniamy się i ustalamy terminy</strong>. na callu objaśniam też nadesłane materiały oraz odpowiadam na wszelkie pytania</li>
                                     <li><strong>przez 5 miesięcy uczysz się</strong> korzystając z otrzymanych materiałów. cały czas <strong>mamy kontakt na Slacku i regularnie zdzwaniamy się, sprawdzając postęp</strong></li>
                                     <li>podczas Twojej nauki będę stale <strong>monitorował Twój progres</strong>, pisząc do Ciebie na wybranej przez Ciebie platformie - <strong>będziesz pod stałym nadzorem mentora</strong></li>
@@ -227,12 +229,12 @@ export default function Home({ path }) {
                 </Container>
             </AutoHeightSection>
             <AutoHeightSection bg="white">
-                <Container flexDirection="column" py="10" pb="10" ptMobile="5">
-                    <Row flexDirection="row" justifyContent="space-between">
-                        <Col colWidth="30%">
+                <Container flexDirection="column" py="10" pb="10" ptMobile="5" narrow>
+                    <Row flexDirection="column" justifyContent="center" alignItems="center">
+                        <Col colWidth="100%">
                             <MentorImage src={mentor_image} alt="Mentor Korków z Front-endu - Michał Trykoszko" />
                         </Col>
-                        <Col colWidth="65%">
+                        <Col colWidth="100%">
                             <ContentContainer>
                                 {/* @todo add instagram feed @trykoszko */}
                                 <h2>
@@ -248,39 +250,28 @@ export default function Home({ path }) {
                                     Moje doświadczenie opiera się głównie o tworzenie customowych stron i sklepów internetowych przy użyciu WordPress i WooCommerce, zarówno warstwy back- jak i front-endowej.
                                 </p>
                                 <p>
-                                    Od zawsze staram się dzielić wiedzą i pomagać innym - obok na zdjęciu to ja, prowadzę warsztaty o połączeniu Reacta i WordPressa na największym meetupie WordPressowym w Polsce - WordCamp Polska Łódź 2019.
+                                    Od zawsze staram się dzielić wiedzą i pomagać innym - na zdjęciu powyżej to ja, prowadzę <a target="_blank" rel="noreferrer" href="https://t2m.io/oOphASkU">warsztaty o połączeniu Reacta i WordPressa</a> na największym meetupie WordPressowym w Polsce - WordCamp Polska Łódź 2019.
                                 </p>
+                                <br />
+                                <br />
                                 <h3>
-                                    Możesz się ze mną <StyledStrong>skontaktować</StyledStrong> na przykład tu:
+                                    Jakim jestem <StyledStrong>nauczycielem</StyledStrong>?
+                                </h3>
+                                <p>
+                                    Koniecznie obejrzyj jeden z moich live'ów, związanych z tematem.
+                                </p>
+                                <YoutubeVid youtubeUrl="https://www.youtube.com/watch?v=MyvmU2LFTzQ" />
+                                <br />
+                                <br />
+                                <br />
+                                <h3>
+                                    Chcesz się ze mną <StyledStrong>skontaktować</StyledStrong>? Wal śmiało np tu:
                                 </h3>
                                 <SocialNav />
                                 <br />
-                                <h4>Albo sprawdź moje fotki na <a target="_blank" rel="noreferer" href="https://t2m.io/eAn0EH9L"><StyledStrong>Instagramie</StyledStrong></a></h4>
+                                <h4>I obowiązkowo sprawdź moje fotki na <a target="_blank" rel="noreferrer" href="https://t2m.io/eAn0EH9L">Instagramie</a> 🙋</h4>
                                 {/* <InstagramFeed /> */}
                             </ContentContainer>
-                        </Col>
-                    </Row>
-                </Container>
-            </AutoHeightSection>
-            <AutoHeightSection bg={theme.colorPrimary} textColor="white">
-                <Container py="10" pb="10" ptMobile="5">
-                    <Row flexDirection="row" justifyContent="space-between" alignItems="center">
-                        <Col colWidth="60%">
-                            <ContentContainer>
-                                <h2>
-                                    <StyledStrong>
-                                        Bądźmy w kontakcie!
-                                    </StyledStrong>
-                                </h2>
-                                <p>
-                                    Jeżeli formuła <strong>Korków z Front-endu</strong> wydaje Ci się interesująca, zapisz się do newslettera. Już wkrótce dostaniesz informacje o planowanym starcie programu!
-                                </p>
-                            </ContentContainer>
-                        </Col>
-                        <Col colWidth="30%" alignItems="flex-end">
-                            <NewsletterToggler type="orange">
-                                Zapisz się na #korki!
-                            </NewsletterToggler>
                         </Col>
                     </Row>
                 </Container>
@@ -296,6 +287,27 @@ export default function Home({ path }) {
                                 <br />
                                 <Accordion items={faqAccordionItems} />
                             </ContentContainer>
+                        </Col>
+                    </Row>
+                </Container>
+            </AutoHeightSection>
+            <AutoHeightSection bg={theme.colorPrimary} textColor="white">
+                <Container py="10" pb="10" ptMobile="5">
+                    <Row flexDirection="row" justifyContent="space-between" alignItems="center">
+                        <Col colWidth="60%">
+                            <ContentContainer>
+                                <h2>
+                                <StyledStrong>Jeszcze jedno!</StyledStrong> Pozostańmy w kontakcie 🤓
+                                </h2>
+                                <p>
+                                    Jeżeli formuła <strong>Korków z Front-endu</strong> wydaje Ci się interesująca, zapisz się do newslettera. Już wkrótce dostaniesz informacje o planowanym starcie programu!
+                                </p>
+                            </ContentContainer>
+                        </Col>
+                        <Col colWidth="30%" alignItems="flex-end">
+                            <NewsletterToggler type="orange">
+                                Zapisz się na #korki!
+                            </NewsletterToggler>
                         </Col>
                     </Row>
                 </Container>

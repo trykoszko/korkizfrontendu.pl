@@ -89,11 +89,11 @@ const Hero = () => {
                                 Do otwarcia zapisów na #korki pozostało <Countdown remaining={remaining} />.
                             </p>
                             <p>
-                                <strong>Zapisz się do newslettera poniżej</strong> by otrzymywać informacje na bieżąco.
+                                <strong>Zapisz się do newslettera</strong> by otrzymywać informacje na bieżąco.
                             </p>
                         </StyledDesc>
                         <NewsletterToggler>
-                            Zapisz mnie!
+                            Chcę dołączyć do newslettera!
                         </NewsletterToggler>
                     </StyledHeroContentWrapper>
                 </StyledHeroContent>
