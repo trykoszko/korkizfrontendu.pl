@@ -81,7 +81,7 @@ export const StyledHeroContentWrapper = styled.div`
     width: 100%;
 
     margin: 0;
-    margin-top: ${theme.s(3)};
+    /* margin-top: ${theme.s(3)}; */
     margin-bottom: ${theme.s(3)};
 
     @media ${above.tablet} {

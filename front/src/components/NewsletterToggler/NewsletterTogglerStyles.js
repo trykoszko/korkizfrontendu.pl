@@ -4,6 +4,10 @@ import {
     theme
 } from '../../constants'
 
+import {
+    above
+} from '../../helpers/breakpoints'
+
 export const StyledNewsletterToggler = styled.button`
     border: none;
     margin: 0;
@@ -39,17 +43,19 @@ export const StyledNewsletterToggler = styled.button`
 
     ${props => props.mt ? css`margin-top: ${props.mt}px;` : ''}
 
-    span {
-        position: relative;
+    @media ${above.smDesktop} {
+        span {
+            position: relative;
 
-        &:after {
-            content: '»';
-            position: absolute;
+            &:after {
+                content: '»';
+                position: absolute;
 
-            right: -${theme.s(2)};
-            top: -${theme.s(.2)};
+                right: -${theme.s(2)};
+                top: -${theme.s(.2)};
 
-            animation: bounce 2s infinite;
+                animation: bounce 2s infinite;
+            }
         }
     }
 

@@ -79,6 +79,8 @@ export const StyledAccordionHeader = styled.button`
             position: absolute;
             top: 0;
             right: 0;
+
+            transform: rotate(180deg);
         }
     }
     strong {
@@ -96,7 +98,7 @@ export const StyledAccordionHeader = styled.button`
     ${props => props.isOpen ? css`
         & > span {
             &:last-child {
-                transform: rotate(180deg);
+                transform: rotate(0deg);
             }
         }
     ` : ''}

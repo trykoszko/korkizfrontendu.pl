@@ -48,7 +48,7 @@ export const theme = {
 
                 background-color: #ff825c;
 
-                height: ${isStaticHeight ? theme.s() : '40%'};
+                height: ${isStaticHeight ? theme.s(2) : '40%'};
 
                 ${isAnimated ? `
                     animation-duration: 1.5s;

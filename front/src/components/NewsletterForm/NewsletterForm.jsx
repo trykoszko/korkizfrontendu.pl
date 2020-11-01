@@ -75,7 +75,7 @@ const NewsletterForm = ({ layout }) => {
                 </Label>
                 <StyledInput ref={emailRef} width="70%" type="email" name="email" placeholder="Wpisz e-mail" required />
                 <Btn width="30%" type="submit">
-                    Zapisuję się &raquo;
+                    Zapisuję się
                 </Btn>
             </StyledNewsletterWrapper>
             {formResponse && <StyledNewsletterWrapper><FormResponse response={formResponse} /></StyledNewsletterWrapper>}

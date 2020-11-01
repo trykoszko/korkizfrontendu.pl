@@ -77,7 +77,7 @@ const Hero = () => {
                         <StyledHeading>
                             Naucz się
                             <br />
-                            <StyledStrong>tworzyć strony</StyledStrong><StyledStrong> internetowe</StyledStrong>
+                            <StyledStrong isStaticHeight={true}>tworzyć strony internetowe</StyledStrong>
                             <br />
                             z doświadczonym mentorem
                         </StyledHeading>
