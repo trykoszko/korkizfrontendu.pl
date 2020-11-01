@@ -5,5 +5,5 @@ import {
 } from '../../constants'
 
 export const StyledStyledStrong = styled.strong`
-    ${props => theme.underscoreDecor(true, true, props.isStaticHeight)}
+    ${props => theme.underscoreDecor(true, false, props.isStaticHeight)}
 `

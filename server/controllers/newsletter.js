@@ -43,6 +43,8 @@ module.exports = {
                 })
         }
 
+        const totalUsers = await NewsletterEntry.findAndCountAll()
+
         NewsletterEntry.create(entry)
             .then(newsletterEntry => {
                 const {
@@ -76,7 +78,7 @@ module.exports = {
                 transporter.sendMail({
                     from: `Korki z Front-endu <${process.env.ADMIN_EMAIL}>`,
                     to: process.env.ADMIN_EMAIL,
-                    subject: 'Nowa rejestracja na korkizfrontendu.pl',
+                    subject: `[#${totalUsers.count + 1}] Nowa rejestracja na korkizfrontendu.pl`,
                     replyTo: email,
                     html: hbs({
                         message: `

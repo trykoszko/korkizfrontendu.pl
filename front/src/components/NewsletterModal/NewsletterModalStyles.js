@@ -11,7 +11,7 @@ import {
 export const StyledModalWrapper = styled.div`
     position: fixed;
     left: 0;
-    top: ${props => props.isVisible ? 0 : `-100%`};
+    top: ${props => props.isVisible ? 0 : `-120%`};
 
     ${theme.transitions.ease}
 

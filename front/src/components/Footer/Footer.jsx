@@ -57,7 +57,7 @@ const Footer = ({ currentPath }) => {
                 </StyledFooterWrapper>
                 <StyledCopyright>
                     <p>
-                        korkizfrontendu.pl &copy; sors Michał Trykoszko 2020
+                        korkizfrontendu.pl &copy; sors 2020
                     </p>
                 </StyledCopyright>
             </Container>

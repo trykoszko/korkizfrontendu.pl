@@ -1,4 +1,13 @@
 import React, { useContext } from 'react'
+import styled from 'styled-components'
+
+import {
+    above
+} from '../../helpers/breakpoints'
+
+import {
+    theme
+} from '../../constants'
 
 import {
     GlobalStateContext,
@@ -18,6 +27,15 @@ import {
 
 import close from '../../../static/close.svg'
 
+const StyledContainer = styled(Container)`
+    padding: ${theme.s(2)};
+    padding-top: ${theme.s(6)};
+
+    @media ${above.smDesktop} {
+        padding: ${theme.s(8)};
+    }
+`
+
 export default function NewsletterModal() {
     const state = useContext(GlobalStateContext)
     const dispatch = useContext(GlobalDispatchContext)
@@ -30,13 +48,13 @@ export default function NewsletterModal() {
                 }}>
                     <img src={close} alt="Zamknij" />
                 </StyledModalCloseButton>
-                <Container narrow ptMobile="8" py="10" pb="10" alignItems="center" justifyContent="center">
+                <StyledContainer narrow alignItems="center" justifyContent="center">
                     <Row alignItems="center" justifyContent="center">
                         <Col colWidth="100%" alignItems="center" justifyContent="center">
                             <NewsletterForm />
                         </Col>
                     </Row>
-                </Container>
+                </StyledContainer>
             </StyledModal>
         </StyledModalWrapper>
     )

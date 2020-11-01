@@ -31,9 +31,9 @@ export const StyledNewsletterForm = styled.form`
             margin-right: ${theme.s()};
         }
     }
-    @media ${above.tablet} {
+    /* @media ${above.tablet} {
         max-width: 80%;
-    }
+    } */
 `
 
 export const StyledNewsletterWrapper = styled.div`
