@@ -29,10 +29,7 @@ const Footer = ({ currentPath }) => {
 
     return (
         <StyledFooter>
-            <Container narrow={true} flexDirection="column" height="100%" py={8}>
-                <StyledFooterWrapper>
-                    newsletter form here
-                </StyledFooterWrapper>
+            <Container narrow={true} flexDirection="column" height="100%" py={8} ptMobile="3">
                 <StyledFooterWrapper>
                     <StyledFooterColumn>
                         <h4>Menu</h4>

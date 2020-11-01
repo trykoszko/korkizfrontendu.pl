@@ -20,6 +20,16 @@ module.exports = {
         theme_color: `#ff825c`,
         display: `standalone`
       },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Roboto Mono\:400,700`,
+          `Work Sans\:400,700`
+        ],
+        display: 'swap'
+      }
     }
   ],
 }

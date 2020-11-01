@@ -1,13 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react'
-
-import {
-    GlobalDispatchContext
-} from '../../context/GlobalContextProvider'
+import React, { useState, useEffect } from 'react'
 
 import Container from '../Container/Container.jsx'
 import Countdown from '../Countdown/Countdown.jsx'
-
-import { StyledNewsletterToggler } from '../NewsletterToggler/NewsletterTogglerStyles'
+import NewsletterToggler from '../NewsletterToggler/NewsletterToggler.jsx'
 
 import {
     theme
@@ -24,9 +19,10 @@ import {
     StyledHero,
     StyledHeroContent,
     StyledHeroContentWrapper,
-    StyledStrong,
     // StyledUl
 } from './HeroStyles'
+
+import StyledStrong from '../StyledStrong/StyledStrong.jsx'
 
 import logo from '../../../static/logo.svg'
 import bg_hero from '../../../static/bg_hero.svg'
@@ -51,10 +47,8 @@ const Hero = () => {
     const [clientX, setClientX] = useState(0)
     const [clientY, setClientY] = useState(0)
 
-    const dispatch = useContext(GlobalDispatchContext)
-
     const [remaining, setRemaining] = useState(`-- dni, -- godzin, -- minut i -- sekund`)
-    const deadline = '2020-11-20'
+    const deadline = '2020-11-14'
     useEffect(() => {
         const interval = setInterval(() => {
             const {
@@ -78,7 +72,7 @@ const Hero = () => {
                     <StyledHeroContentWrapper>
                         <StyledLogoWrapper href="/">
                             <StyledLogo src={logo} alt="Logo" />
-                            <StyledLogoDesc><span>Korki z</span> <span>Front-endu</span></StyledLogoDesc>
+                            <StyledLogoDesc>Korki z <StyledStrong>Front-endu</StyledStrong></StyledLogoDesc>
                         </StyledLogoWrapper>
                         <StyledHeading>
                             Naucz się
@@ -92,17 +86,15 @@ const Hero = () => {
                                 <strong>Korki z Front-endu</strong> to zupełnie nowy program nauki tworzenia stron internetowych, w którym przyswajasz tylko tę wiedzę, która jak najszybciej pozwoli Ci zacząć pracę w IT, na stanowisku <strong>Junior Front-end Developer</strong>.
                             </p>
                             <p>
-                                Do nowej edycji #korków pozostało <strong><Countdown remaining={remaining} /></strong>.
+                                Do otwarcia zapisów na #korki pozostało <Countdown remaining={remaining} />.
                             </p>
                             <p>
-                                Zapisz się do newslettera poniżej by otrzymywać informacje na bieżąco.
+                                <strong>Zapisz się do newslettera poniżej</strong> by otrzymywać informacje na bieżąco.
                             </p>
                         </StyledDesc>
-                        <StyledNewsletterToggler onClick={() => {
-                            dispatch({ type: 'TOGGLE_NEWSLETTER_MODAL' })
-                        }}>
-                            Toggle newsletter
-                        </StyledNewsletterToggler>
+                        <NewsletterToggler>
+                            Zapisz mnie!
+                        </NewsletterToggler>
                     </StyledHeroContentWrapper>
                 </StyledHeroContent>
                 <StyledBgColor top={theme.s(12 + (clientY * 0.003))} right={theme.s(10 - (clientX * 0.001))} dimensions="10vw" bg={theme.colorOrange} />

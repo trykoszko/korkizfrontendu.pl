@@ -62,6 +62,8 @@ export const StyledFooterNav = styled.ul`
 
     font-family: ${theme.monoFont};
 
+    font-size: 1rem;
+
     li {
         display: block;
 
@@ -83,8 +85,6 @@ export const StyledFooterNav = styled.ul`
 export const StyledFooterNavItem = styled.li`
     ${props => props.isCurrent ? `
         a {
-            ${theme.underscoreDecor()}
-
             &:hover {
                 &:after {
                     opacity: 1;
@@ -101,7 +101,11 @@ export const StyledCopyright = styled.div`
 
     text-align: center;
 
+    padding: ${theme.s(2)} 0;
+
     p {
+        font-size: .8rem;
+
         margin: 0;
     }
 `

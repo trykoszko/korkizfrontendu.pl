@@ -39,7 +39,7 @@ module.exports = {
                 .status(200)
                 .send({
                     success: true,
-                    message: 'Podany adres e-mail jest już w naszej bazie danych'
+                    message: 'Podany adres e-mail jest już w bazie danych'
                 })
         }
 
@@ -97,7 +97,7 @@ module.exports = {
                         .status(201)
                         .send({
                             success: true,
-                            message: `Dziękuję za zainteresowanie moim szkoleniem. Podany adres e-mail został dodany do bazy mailingowej!`,
+                            message: `Dziękuję za zainteresowanie moim szkoleniem. Podany adres e-mail został dodany do bazy mailingowej! Sprawdź, czy dostałeś e-mail. Jeśli nie, skontaktuj się ze mną na michal@korkizfrontendu.pl.`,
                             err: err
                         })
                 })
@@ -108,7 +108,7 @@ module.exports = {
                     .status(400)
                     .send({
                         success: false,
-                        message: 'Wystąpił błąd. Podany adres e-mail nie został zarejestrowany w naszej bazie.'
+                        message: 'Wystąpił błąd. Podany adres e-mail nie został zarejestrowany w bazie.'
                     })
             })
     },
@@ -128,7 +128,7 @@ module.exports = {
                     success: false,
                     messageType: 'error',
                     heading: 'Błąd!',
-                    message: 'Podany adres e-mail nie istnieje w naszej bazie danych więc nie został usunięty'
+                    message: 'Podany adres e-mail nie istnieje w bazie danych więc nie został usunięty'
                 })
         }
 

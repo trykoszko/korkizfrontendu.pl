@@ -10,8 +10,17 @@ const getTimerHTML = remaining => {
     }
 }
 
+const StyledSpan = ({ dangerouslySetInnerHTML }) => {
+    return (
+        <>
+            <span>{dangerouslySetInnerHTML.__html}</span>
+            <span></span>
+        </>
+    )
+}
+
 const Countdown = ({ remaining }) => {
-    return <StyledCountdown dangerouslySetInnerHTML={getTimerHTML(remaining)} />
+    return <StyledCountdown><StyledSpan dangerouslySetInnerHTML={getTimerHTML(remaining)} /></StyledCountdown>
 }
 
 export default Countdown

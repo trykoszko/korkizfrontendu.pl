@@ -1,4 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
+
+import {
+    under,
+    above
+} from '../helpers/breakpoints'
+
+import {
+    faqAccordionItems, skillsItems
+} from '../constants'
 
 import { theme } from '../constants'
 
@@ -10,7 +20,106 @@ import Container from '../components/Container/Container.jsx'
 import Row from '../components/Row/Row.jsx'
 import Col from '../components/Col/Col.jsx'
 import ContentContainer from '../components/ContentContainer/ContentContainer.jsx'
-import NewsletterModalButton from '../components/NewsletterModalButton/NewsletterModalButton.jsx'
+import NewsletterToggler from '../components/NewsletterToggler/NewsletterToggler.jsx'
+import StyledStrong from '../components/StyledStrong/StyledStrong.jsx'
+import SocialNav from '../components/SocialNav/SocialNav.jsx'
+import Accordion from '../components/Accordion/Accordion.jsx'
+// import InstagramFeed from '../components/InstagramFeed/InstagramFeed.jsx'
+
+import info from '../../static/info.svg'
+import stepping from '../../static/stepping.svg'
+import mentor_image from '../../static/mentor.jpg'
+
+const StyledMentorImageWrapper = styled.div`
+    padding: ${theme.s()};
+    position: relative;
+
+    padding: 0;
+    margin: 0;
+
+    @media ${under.smDesktop} {
+        margin-bottom: ${theme.s(3)};
+    }
+
+    &:after {
+        content: '';
+        width: 90%;
+        height: ${theme.s(2)};
+
+        background-color: ${theme.colorOrange};
+
+        position: absolute;
+        bottom: -${theme.s(.5)};
+        left: 0;
+    }
+`
+
+const StyledMentorImage = styled.img`
+    width: 100%;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+`
+
+const MentorImage = ({ src, alt }) => <StyledMentorImageWrapper><StyledMentorImage src={src} alt={alt} /></StyledMentorImageWrapper>
+
+const StyledSectionImage = styled.img`
+    max-width: 100%;
+    height: auto;
+
+    padding: 0;
+    padding-left: ${props => props.pl}%;
+    padding-right: ${props => props.pr}%;
+    padding-top: ${props => props.pt}%;
+
+    ${theme.transitions.slow}
+
+    &:hover {
+        transform: scale(1.04);
+    }
+
+    @media ${under.smDesktop} {
+        display: none;
+    }
+`
+
+const StyledUl = styled.ul`
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: ${props => props.flexDirection ? props.flexDirection : 'column'};
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    font-family: ${theme.monoFont};
+
+    @media ${above.smDesktop} {
+        justify-content: ${props => props.justifyContent ? props.justifyContent : 'flex-start'};
+
+        padding: 0 ${theme.s(2)};
+    }
+
+    li {
+        display: inline-block;
+
+        padding: ${theme.s()} ${theme.s(2)};
+
+        background-color: rgba(255, 255, 255, .1);
+
+        margin: ${theme.s(.5)};
+
+        &:hover {
+            background-color: rgba(255, 130, 92, .2);
+        }
+        @media ${above.smDesktop} {
+            margin: ${theme.s()};
+        }
+    }
+`
 
 export default function Home({ path }) {
     return (
@@ -18,66 +127,177 @@ export default function Home({ path }) {
             <FullHeightSection bg={theme.colorBeige}>
                 <Hero />
             </FullHeightSection>
+            <AutoHeightSection bg={theme.colorPrimary} textColor="white">
+                <Container flexDirection="column" py="10" pb="10" ptMobile="5">
+                    <Row flexDirection="row" justifyContent="center">
+                        <Col colWidth="60%">
+                            <ContentContainer centered>
+                                <h2>
+                                    <StyledStrong>Czego się nauczysz</StyledStrong> na #korkach?
+                                </h2>
+                                <p>
+                                    Nie tylko dowiesz się co to za technologie,<br />ale też dowiesz się, jak wykorzystywać je w praktyce!
+                                </p>
+                                <StyledUl flexDirection="row" justifyContent="center">
+                                    {skillsItems
+                                        .sort(function (a, b) { return 0.5 - Math.random() })
+                                        .map(item => <li key={item}><p>{item}</p></li>)}
+                                </StyledUl>
+                            </ContentContainer>
+                        </Col>
+                    </Row>
+                </Container>
+            </AutoHeightSection>
             <AutoHeightSection bg="white" textColor={theme.colorPrimary}>
-                <Container flexDirection="column" py="10" pb="15">
+                <Container flexDirection="column" py="10" pb="15" ptMobile="8">
                     <Row flexDirection="row" justifyContent="space-between">
                         <Col colWidth="20%">
                             <ContentContainer>
-                                <h2>O programie</h2>
-                                <p>Nowa formuła nauki</p>
-                            </ContentContainer>
-                        </Col>
-                        <Col colWidth="33%" ml="auto" mr="10">
-                            <ContentContainer>
-                                <h3>
-                                    Test test
-                                </h3>
-                                <p>
-                                    <strong>Korki z Front-endu</strong> to bardzo elastyczny program, który nie wymaga od Ciebie dopasowania się sztywnego harmonogramu. Formuła korków, oprócz umiejętności technicznych, uczy też samodyscypliny i dobrego nawyku ciągłego uczenia się.
-                                </p>
-                                <ul>
-                                    <li>zaczynałem tak samo jak Ty i wiem od czego zacząć a także w jakim kierunku najlepiej kontynuować naukę</li>
-                                    <li>w programie grupowym masz stały kontakt z grupą i osobą prowadzącą</li>
-                                    <li>moja wiedza opiera się o realne projekty</li>
-                                    <li>każdy jest traktowany indywidualnie i progres sprawdzany jest na bieżąco</li>
-                                </ul>
+                                <h2>
+                                    <StyledStrong>
+                                        O programie
+                                    </StyledStrong>
+                                </h2>
                             </ContentContainer>
                         </Col>
                         <Col colWidth="33%">
                             <ContentContainer>
                                 <h3>
-                                    Zapisz się, jeżeli:
+                                    <StyledStrong>Dla kogo</StyledStrong> są #korki?
                                 </h3>
                                 <ul>
-                                    <li>chciałbyś się przebranżowić i zacząć pracę w branży IT</li>
-                                    <li>chciałbyś nauczyć się tworzyć strony internetowe i stworzyć sobie możliwości dodatkowego zarobku lub wykonania własnej strony firmowej</li>
-                                    <li>jesteś już na pewnym poziomie umiejętności front-endowych, ale nie wiesz co dalej, albo jestes back-endowcem i chciałbyś douczyć się front-endu</li>
-                                    <li>chcesz uczestniczyć w indywidualnych lub grupowych zajęciach z programowania i tworzenia stron internetowych</li>
-                                    <li>potrzebujesz mentora lub porady, w którym kierunku podążać</li>
-                                    <li>jesteś samodzielny i zdyscyplinowany</li>
+                                    <li>chciałbyś się <strong>przebranżowić</strong> i zacząć pracę w branży IT</li>
+                                    <li>chciałbyś nauczyć się <strong>tworzyć strony internetowe</strong> i stworzyć sobie możliwości <strong>dodatkowego zarobku</strong> lub wykonania <strong>własnej strony firmowej</strong></li>
+                                    <li>jesteś już na <strong>pewnym poziomie</strong> umiejętności front-endowych, ale nie wiesz co dalej</li>
+                                    <li><strong>jesteś back-endowcem</strong> i chciałbyś douczyć się front-endu</li>
+                                    <li>chcesz uczestniczyć w <strong>indywidualnych lub grupowych zajęciach</strong> z programowania i tworzenia stron internetowych</li>
+                                    <li>potrzebujesz <strong>mentora lub porady</strong>, w którym kierunku podążać</li>
+                                    <li>jesteś <strong>samodzielny i zdyscyplinowany</strong> oraz jesteś w stanie poświęcić około godzinę dziennie na naukę przez 6 miesięcy w ciągu</li>
+                                </ul>
+                            </ContentContainer>
+                        </Col>
+                        <Col colWidth="33%" ml="auto" mr="10">
+                            <ContentContainer>
+                                <h3>
+                                    Tylko <StyledStrong>praktyczna</StyledStrong> wiedza
+                                </h3>
+                                <p>
+                                    <strong>Korki z Front-endu</strong> to bardzo elastyczny program, który nie wymaga od Ciebie dopasowania się sztywnego harmonogramu.
+                                    <br /><br />
+                                    Formuła korków, oprócz umiejętności technicznych, uczy też samodyscypliny i dobrego nawyku ciągłego uczenia się.
+                                </p>
+                                <p>
+                                    Dlaczego wybrać <StyledStrong>#korki</StyledStrong>?
+                                </p>
+                                <ul>
+                                    <li><strong>zaczynałem tak samo jak Ty</strong> i wiem od czego zacząć a także w jakim kierunku najlepiej kontynuować naukę</li>
+                                    <li>w programie grupowym masz <strong>stały kontakt z grupą i osobą prowadzącą</strong></li>
+                                    <li>moja wiedza opiera się o <strong>realne projekty</strong></li>
+                                    <li>każdy jest <strong>traktowany indywidualnie</strong> i progres sprawdzany jest na bieżąco</li>
                                 </ul>
                             </ContentContainer>
                         </Col>
                     </Row>
-                    <Row justifyContent="center" alignItems="center">
-                        <NewsletterModalButton>
-                            Zapisz mnie &raquo;
-                        </NewsletterModalButton>
+                </Container>
+            </AutoHeightSection>
+            <AutoHeightSection bg={theme.colorBeige}>
+                <Container flexDirection="column" py="10" pb="10" ptMobile="5">
+                    <Row flexDirection="row">
+                        <Col colWidth="50%">
+                            <StyledSectionImage src={info} pt="10" pl="10" pr="40" alt="Twój profil" />
+                            <StyledSectionImage src={stepping} pt="5" pl="30" pr="20" alt="Twój progres" />
+                        </Col>
+                        <Col colWidth="40%">
+                            <ContentContainer>
+                                <h2>
+                                    <StyledStrong>Jak wyglądają</StyledStrong> #korki?
+                                </h2>
+                                <ol>
+                                    <li>rejestracja zostanie otwarta dokładnie <strong>2020-11-06</strong></li>
+                                    <li>po zakończonej rejestracji, otwieramy nowy <i>rok szkolny</i> ;) - dostaniesz ode mnie <strong>materiały oraz instrukcję</strong>, jak z nich korzystać</li>
+                                    <li>mając już materiały, <strong>zdzwaniamy się i ustalamy terminy</strong>. na callu objaśniam też nadesłane materiały oraz odpowiadam na wszelkie pytania</li>
+                                    <li><strong>przez 5 miesięcy uczysz się</strong> korzystając z otrzymanych materiałów. cały czas <strong>mamy kontakt na Slacku i regularnie zdzwaniamy się, sprawdzając postęp</strong></li>
+                                    <li>podczas Twojej nauki będę stale <strong>monitorował Twój progres</strong>, pisząc do Ciebie na wybranej przez Ciebie platformie - <strong>będziesz pod stałym nadzorem mentora</strong></li>
+                                    <li>po 5 miesiącach intensywnej nauki, organizujemy grupy lub jedną dużą grupę i <strong>wykonujemy projekty grupowe</strong>, które później będziesz mógł wrzucić do <strong>portfolio</strong></li>
+                                    <li>ostatni, szósty miesiąc, będzie służył na <strong>doskonalenie Twoich umiejętności miękkich</strong> oraz <strong>przygotowaniu Cię do szukania pracy</strong></li>
+                                </ol>
+                            </ContentContainer>
+                        </Col>
                     </Row>
                 </Container>
             </AutoHeightSection>
             <AutoHeightSection bg="white">
-                <Container narrow>
-                    <h2>
-                        Dla kogo jest ten program?
-                    </h2>
+                <Container flexDirection="column" py="10" pb="10" ptMobile="5">
+                    <Row flexDirection="row" justifyContent="space-between">
+                        <Col colWidth="30%">
+                            <MentorImage src={mentor_image} alt="Mentor Korków z Front-endu - Michał Trykoszko" />
+                        </Col>
+                        <Col colWidth="65%">
+                            <ContentContainer>
+                                {/* @todo add instagram feed @trykoszko */}
+                                <h2>
+                                    <StyledStrong>O mnie</StyledStrong>
+                                </h2>
+                                <p>
+                                    Hej! Mam na imię Michał i będę Twoim mentorem.
+                                </p>
+                                <p>
+                                    Mam kilka lat doświadczenia w programowaniu i tworzeniu stron internetowych. Choć aktualnie tworzę projekty głównie back-endowe, przez większość kariery byłem Full-stack Developerem.
+                                </p>
+                                <p>
+                                    Moje doświadczenie opiera się głównie o tworzenie customowych stron i sklepów internetowych przy użyciu WordPress i WooCommerce, zarówno warstwy back- jak i front-endowej.
+                                </p>
+                                <p>
+                                    Od zawsze staram się dzielić wiedzą i pomagać innym - obok na zdjęciu to ja, prowadzę warsztaty o połączeniu Reacta i WordPressa na największym meetupie WordPressowym w Polsce - WordCamp Polska Łódź 2019.
+                                </p>
+                                <h3>
+                                    Możesz się ze mną <StyledStrong>skontaktować</StyledStrong> na przykład tu:
+                                </h3>
+                                <SocialNav />
+                                <br />
+                                <h4>Albo sprawdź moje fotki na <a target="_blank" rel="noreferer" href="https://t2m.io/eAn0EH9L"><StyledStrong>Instagramie</StyledStrong></a></h4>
+                                {/* <InstagramFeed /> */}
+                            </ContentContainer>
+                        </Col>
+                    </Row>
+                </Container>
+            </AutoHeightSection>
+            <AutoHeightSection bg={theme.colorPrimary} textColor="white">
+                <Container py="10" pb="10" ptMobile="5">
+                    <Row flexDirection="row" justifyContent="space-between" alignItems="center">
+                        <Col colWidth="60%">
+                            <ContentContainer>
+                                <h2>
+                                    <StyledStrong>
+                                        Bądźmy w kontakcie!
+                                    </StyledStrong>
+                                </h2>
+                                <p>
+                                    Jeżeli formuła <strong>Korków z Front-endu</strong> wydaje Ci się interesująca, zapisz się do newslettera. Już wkrótce dostaniesz informacje o planowanym starcie programu!
+                                </p>
+                            </ContentContainer>
+                        </Col>
+                        <Col colWidth="30%" alignItems="flex-end">
+                            <NewsletterToggler type="orange">
+                                Zapisz się na #korki!
+                            </NewsletterToggler>
+                        </Col>
+                    </Row>
                 </Container>
             </AutoHeightSection>
             <AutoHeightSection bg={theme.colorBeige}>
-                <Container narrow>
-                    <h2>
-                        O mnie
-                    </h2>
+                <Container narrow py="10" pb="10" ptMobile="5">
+                    <Row>
+                        <Col colWidth="100%">
+                            <ContentContainer>
+                                <h2>
+                                    Najczęściej zadawane pytania (<StyledStrong>FAQ</StyledStrong>)
+                                </h2>
+                                <br />
+                                <Accordion items={faqAccordionItems} />
+                            </ContentContainer>
+                        </Col>
+                    </Row>
                 </Container>
             </AutoHeightSection>
         </Layout>

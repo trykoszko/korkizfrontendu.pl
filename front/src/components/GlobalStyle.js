@@ -3,38 +3,8 @@ import { normalize } from 'styled-normalize'
 
 import { theme } from '../constants'
 
-import DMSans from '../../static/DMSans-Regular.ttf'
-import DMSansBold from '../../static/DMSans-Bold.ttf'
-import RobotoMono from '../../static/RobotoMono-Regular.ttf'
-import RobotoMonoBold from '../../static/RobotoMono-Bold.ttf'
-
 const GlobalStyle = createGlobalStyle`
     ${normalize}
-
-    @font-face {
-        font-family: DMSans;
-        src: url(${DMSans});
-        font-weight: normal;
-        font-style: normal;
-    }
-    @font-face {
-        font-family: DMSans;
-        src: url(${DMSansBold});
-        font-weight: bold;
-        font-style: normal;
-    }
-    @font-face {
-        font-family: RobotoMono;
-        src: url(${RobotoMono});
-        font-weight: normal;
-        font-style: normal;
-    }
-    @font-face {
-        font-family: RobotoMono;
-        src: url(${RobotoMonoBold});
-        font-weight: bold;
-        font-style: normal;
-    }
 
     @keyframes titleBg {
         0%   {
@@ -42,6 +12,18 @@ const GlobalStyle = createGlobalStyle`
         }
         100% {
             width: 100%;
+        }
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateX(2px);
+        }
+        40% {
+            transform: translateX(-7px);
+        }
+        60% {
+            transform: translateX(-4px);
         }
     }
 
@@ -64,8 +46,13 @@ const GlobalStyle = createGlobalStyle`
     }
 
     p,
-    ul {
+    ul,
+    ol {
         font-size: 1.23rem;
+    }
+
+    strong {
+        font-weight: 700;
     }
 `
 

@@ -2,17 +2,18 @@ import React, { useContext } from 'react'
 
 import { GlobalDispatchContext } from '../../context/GlobalContextProvider'
 
-import { StyledBtn } from './NewsletterTogglerStyles'
+import { StyledNewsletterToggler } from './NewsletterTogglerStyles'
 
-export default function NewsletterModalButton({ children }) {
+export default function NewsletterToggler({ children, type, mt }) {
     const dispatch = useContext(GlobalDispatchContext)
-    console.log('dispatch1', dispatch)
 
     return (
-        <StyledBtn onClick={() => {
+        <StyledNewsletterToggler mt={mt} type={type} onClick={() => {
             dispatch({ type: 'TOGGLE_NEWSLETTER_MODAL' })
         }}>
-            {children}
-        </StyledBtn>
+            <span>
+                {children}
+            </span>
+        </StyledNewsletterToggler>
     )
 }

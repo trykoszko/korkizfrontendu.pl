@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import Btn from '../Btn/Btn.jsx'
 import Label from '../Label/Label.jsx'
+import StyledStrong from '../StyledStrong/StyledStrong.jsx'
 
 import {
     StyledNewsletterForm,
@@ -58,8 +59,15 @@ const NewsletterForm = ({ layout }) => {
 
     return (
         <StyledNewsletterForm isLoading={isLoading} layout={layout} onSubmit={handleSubmission}>
-            <StyledNewsletterWrapper>
-                {formResponse && <FormResponse response={formResponse} />}
+            <StyledNewsletterWrapper mobileLayout="column" layout="column">
+                <h3>
+                    <StyledStrong>
+                        Bądźmy w kontakcie!
+                    </StyledStrong>
+                </h3>
+                <p>
+                    Jeżeli formuła <strong>Korków z Front-endu</strong> wydaje Ci się interesująca, zapisz się do newslettera, a już wkrótce dostaniesz informacje o planowanym starcie programu!
+                </p>
             </StyledNewsletterWrapper>
             <StyledNewsletterWrapper mobileLayout="column" isSent={isSent}>
                 <Label srOnly htmlFor="email">
@@ -70,6 +78,7 @@ const NewsletterForm = ({ layout }) => {
                     Zapisuję się &raquo;
                 </Btn>
             </StyledNewsletterWrapper>
+            {formResponse && <StyledNewsletterWrapper><FormResponse response={formResponse} /></StyledNewsletterWrapper>}
             <StyledNewsletterWrapper layout="column" isSent={isSent}>
                 <StyledRadioGroup>
                     <StyledCheckbox

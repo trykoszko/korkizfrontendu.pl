@@ -19,9 +19,20 @@ export const StyledContentContainer = styled.div`
     font-size: 1rem;
     line-height: 1.5;
 
+    ${props => props.centered ? css`text-align: center;` : ''}
+
     &:first-child {
         padding-top: 0;
     }
+
+    /* h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: 6%;
+    } */
 
     @media ${above.tablet} {
         ${props => css`padding-top: ${theme.s(props.pyDesktop)}; padding-bottom: ${theme.s(props.pyDesktop)};`}

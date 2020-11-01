@@ -5,11 +5,13 @@ import { theme } from '../constants'
 import AutoHeightSection from '../components/AutoHeightSection/AutoHeightSection.jsx'
 import Container from '../components/Container/Container.jsx'
 import ContentContainer from '../components/ContentContainer/ContentContainer.jsx'
+import Navbar from '../components/Navbar/Navbar.jsx'
 import Layout from '../components/Layout'
 
 export default function Regulamin({ path }) {
   return (
     <Layout currentPath={path}>
+      <Navbar />
       <AutoHeightSection bg={theme.colorBeige}>
         <Container narrow={true} py="9" flexDirection="column" alignItems="stretch" justifyContent="flex-start">
           <ContentContainer pyDesktop="2">

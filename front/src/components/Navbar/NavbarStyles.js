@@ -5,8 +5,7 @@ import {
 } from '../../constants'
 
 import {
-    above,
-    under
+    above
 } from '../../helpers/breakpoints'
 
 export const StyledNavbarWrapper = styled.header`
@@ -20,6 +19,10 @@ export const StyledNavbarWrapper = styled.header`
     z-index: 900;
 
     background-color: ${theme.colorBeige};
+
+    a {
+        margin: 0;
+    }
 `
 
 export const StyledNavbar = styled.nav`
@@ -49,15 +52,16 @@ export const StyledNav = styled.ul`
     justify-content: center;
 
     font-family: ${theme.monoFont};
+    font-size: 1rem;
 
-    li {
+    & > li {
         display: block;
         margin: 0 ${theme.s(2)};
         padding: ${theme.s()} 0;
     }
 
     @media ${above.mobile} {
-        li {
+        & > li {
             &:last-child {
                 margin-right: 0;
             }

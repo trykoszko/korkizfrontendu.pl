@@ -5,27 +5,30 @@ import {
 } from '../../constants'
 
 import {
-    StyledLogo,
-    StyledLogoDesc,
-    StyledLogoWrapper,
     StyledNav,
     StyledNavbar,
     StyledNavbarWrapper
 } from './NavbarStyles'
 
-import Container from './Container'
-import MenuItem from './MenuItem.jsx'
+import {
+    StyledLogo,
+    StyledLogoDesc,
+    StyledLogoWrapper
+} from '../Hero/HeroStyles'
 
-import logo from '../../static/logo.svg'
+import Container from '../Container/Container.jsx'
+import MenuItem from '../MenuItem/MenuItem.jsx'
 
-const Navbar = ({ currentSectionColor, windowScrolled, currentPath }) => {
+import logo from '../../../static/logo.svg'
+
+const Navbar = ({ currentPath }) => {
     return (
-        <StyledNavbarWrapper currentSectionColor={currentSectionColor} windowScrolled={windowScrolled}>
+        <StyledNavbarWrapper>
             <Container>
                 <StyledNavbar>
                     <StyledLogoWrapper href="/">
-                        <StyledLogo windowScrolled={windowScrolled} src={logo} alt="Logo" />
-                        <StyledLogoDesc windowScrolled={windowScrolled}><span>Korki z</span> <span>Front-endu</span></StyledLogoDesc>
+                        <StyledLogo src={logo} alt="Logo" />
+                        <StyledLogoDesc><span>Korki z</span> <span>Front-endu</span></StyledLogoDesc>
                     </StyledLogoWrapper>
                     <StyledNav>
                         {menuItems ? menuItems.map(item => <MenuItem key={item.id} currentPath={currentPath} id={item.id} isCurrent={item.isCurrent} url={item.url} title={item.title} />) : ''}

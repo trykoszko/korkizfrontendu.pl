@@ -52,12 +52,6 @@ export const StyledLogoDesc = styled.p`
     display: flex;
     flex-direction: column;
 
-    span:nth-child(2) {
-        position: relative;
-
-        ${theme.underscoreDecor()}
-    }
-
     @media ${under.tablet} {
         font-size: ${props => props.windowScrolled ? 1 : 1.8}rem;
     }
@@ -92,7 +86,7 @@ export const StyledHeroContentWrapper = styled.div`
 
     @media ${above.tablet} {
         margin-top: ${theme.s(6)};
-        margin-bottom: ${theme.s(6)};
+        margin-bottom: ${theme.s(10)};
     }
     @media ${above.smDesktop} {
         max-width: 60%;
@@ -141,7 +135,7 @@ export const StyledDesc = styled.div`
         line-height: 2.2;
     }
     @media ${above.smDesktop} {
-        max-width: 85%;
+        max-width: 95%;
     }
 `
 
@@ -191,10 +185,6 @@ export const StyledBgColor = styled.div.attrs(props => ({
     @media ${under.smDesktop} {
         display: none;
     }
-`
-
-export const StyledStrong = styled.strong`
-    ${theme.underscoreDecor(true, true)}
 `
 
 export const StyledUl = styled.ul`

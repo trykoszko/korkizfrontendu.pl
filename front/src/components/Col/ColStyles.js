@@ -7,15 +7,12 @@ import {
 export const StyledCol = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    ${props => css`align-items: ${props.alignItems ? props.alignItems : 'flex-start'};`}
+    ${props => css`justify-content: ${props.justifyContent ? props.justifyContent : 'flex-start'};`}
 
-    ${props => css`width: ${props.colWidth ? props.colWidth : 'auto'};`}
+    @media ${above.smDesktop} {
+        ${props => css`width: ${props.colWidth ? props.colWidth : 'auto'};`}
 
-    ${props => props.ml ? css`margin-left: ${props.ml * 2}px;` : ''}
-    ${props => props.mr ? css`margin-left: ${props.mr * 2}px;` : ''}
-
-    @media ${above.tablet} {
         ${props => props.ml ? css`margin-left: ${props.ml * 6}px;` : ''}
         ${props => props.mr ? css`margin-left: ${props.mr * 6}px;` : ''}
     }

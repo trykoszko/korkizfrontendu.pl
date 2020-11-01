@@ -12,6 +12,8 @@ export const StyledRow = styled.div`
 
     width: 100%;
 
+    z-index: 5;
+
     @media ${above.smDesktop} {
         ${props => css`flex-direction: ${props.flexDirection ? props.flexDirection : 'column'};`}
         ${props => css`align-items: ${props.alignItems ? props.alignItems : 'flex-start'};`}

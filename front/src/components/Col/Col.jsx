@@ -4,9 +4,9 @@ import {
     StyledCol
 } from './ColStyles'
 
-const Col = ({ children, colWidth, ml, mr }) => {
+const Col = ({ children, colWidth, ml, mr, alignItems, justifyContent }) => {
     return (
-        <StyledCol colWidth={colWidth} ml={ml} mr={mr}>
+        <StyledCol alignItems={alignItems} justifyContent={justifyContent} colWidth={colWidth} ml={ml} mr={mr}>
             {children}
         </StyledCol>
     )

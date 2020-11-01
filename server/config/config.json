@@ -1,7 +1,7 @@
 {
-  "development": {
-    "username": "root",
-    "password": "",
+  "production": {
+    "username": "sors_korki",
+    "password": "awjNCDWcJ8D22yQNnocXmZTO",
     "database": "sors_korki_dev",
     "host": "localhost",
     "dialect": "mysql"

@@ -12,8 +12,12 @@ export const StyledNewsletterForm = styled.form`
         border: none;
         border-radius: ${theme.borderRadius.small};
 
+        background-color: ${theme.colorBeigeAlt};
+
         padding: ${theme.s(2)};
     }
+
+    margin-bottom: 0;
 
     @media ${under.mobile} {
 
@@ -46,11 +50,9 @@ export const StyledNewsletterWrapper = styled.div`
 `
 
 export const StyledInput = styled.input`
-    margin: 0;
+    flex: 1 1 auto;
 
-    @media ${above.tablet} {
-        ${props => props.width ? `width: ${props.width}` : ''};
-    }
+    margin: 0;
 `
 
 export const StyledRadioGroup = styled.div`
@@ -77,7 +79,7 @@ export const StyledRadioGroup = styled.div`
 `
 
 export const StyledFormResponse = styled.p`
-    font-size: .8rem;
+    font-size: 1rem;
 
     padding: ${theme.s()};
 

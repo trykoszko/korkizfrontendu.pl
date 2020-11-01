@@ -4,6 +4,6 @@ import {
     theme
 } from '../../constants'
 
-export const StyledCountdown = styled.span`
-    ${theme.underscoreDecor()}
+export const StyledCountdown = styled.strong`
+    ${theme.underscoreDecor(true, true)}
 `
