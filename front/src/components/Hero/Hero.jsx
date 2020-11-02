@@ -86,7 +86,7 @@ const Hero = () => {
                                 <strong>Korki z Front-endu</strong> to zupełnie nowy program nauki tworzenia stron internetowych, w którym przyswajasz tylko tę wiedzę, która jak najszybciej pozwoli Ci zacząć pracę w IT, na stanowisku <strong>Junior Front-end Developer</strong>.
                             </p>
                             <p>
-                                Do otwarcia zapisów na #korki pozostało <Countdown remaining={remaining} />.
+                                Do otwarcia zapisów pozostało <Countdown remaining={remaining} />.
                             </p>
                             <p>
                                 <strong>Zapisz się do newslettera</strong> by otrzymywać informacje na bieżąco.
