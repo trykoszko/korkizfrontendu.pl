@@ -8,4 +8,5 @@ export const StyledMenuItem = styled.li`
             ${theme.underscoreDecor()}
         }
     ` : ``}
+    ${props => props.isSpecial ? theme.specialLink : ``}
 `

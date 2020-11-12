@@ -130,7 +130,7 @@ export default function Home({ path }) {
                 <Hero />
             </FullHeightSection>
             <AutoHeightSection bg={theme.colorPrimary} textColor="white">
-                <Container flexDirection="column" py="10" pb="10" ptMobile="5">
+                <Container flexDirection="column" py="10" pb="10" pt="10" ptMobile="5">
                     <Row flexDirection="row" justifyContent="center">
                         <Col colWidth="60%">
                             <ContentContainer centered>
@@ -151,7 +151,7 @@ export default function Home({ path }) {
                 </Container>
             </AutoHeightSection>
             <AutoHeightSection bg="white" textColor={theme.colorPrimary}>
-                <Container flexDirection="column" py="10" pb="15" ptMobile="8">
+                <Container flexDirection="column" py="10" pb="15" pt="10" ptMobile="8">
                     <Row flexDirection="row" justifyContent="space-between">
                         <Col colWidth="20%">
                             <ContentContainer>
@@ -203,7 +203,7 @@ export default function Home({ path }) {
                 </Container>
             </AutoHeightSection>
             <AutoHeightSection bg={theme.colorBeige}>
-                <Container flexDirection="column" py="10" pb="10" ptMobile="5">
+                <Container flexDirection="column" py="10" pb="10" pt="10" ptMobile="5">
                     <Row flexDirection="row">
                         <Col colWidth="50%">
                             <StyledSectionImage src={info} pt="10" pl="10" pr="40" alt="Twój profil" />
@@ -229,7 +229,7 @@ export default function Home({ path }) {
                 </Container>
             </AutoHeightSection>
             <AutoHeightSection bg="white">
-                <Container flexDirection="column" py="10" pb="10" ptMobile="5" narrow>
+                <Container flexDirection="column" py="10" pb="10" pt="10" ptMobile="5" narrow>
                     <Row flexDirection="column" justifyContent="center" alignItems="center">
                         <Col colWidth="100%">
                             <MentorImage src={mentor_image} alt="Mentor Korków z Front-endu - Michał Trykoszko" />
@@ -277,7 +277,7 @@ export default function Home({ path }) {
                 </Container>
             </AutoHeightSection>
             <AutoHeightSection bg={theme.colorBeige}>
-                <Container narrow py="10" pb="10" ptMobile="5">
+                <Container narrow py="10" pb="10" pt="10" ptMobile="5">
                     <Row>
                         <Col colWidth="100%">
                             <ContentContainer>
@@ -292,7 +292,7 @@ export default function Home({ path }) {
                 </Container>
             </AutoHeightSection>
             <AutoHeightSection bg={theme.colorPrimary} textColor="white">
-                <Container py="10" pb="10" ptMobile="5">
+                <Container py="10" pb="10" pt="10" ptMobile="5">
                     <Row flexDirection="row" justifyContent="space-between" alignItems="center">
                         <Col colWidth="60%">
                             <ContentContainer>

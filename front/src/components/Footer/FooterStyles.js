@@ -12,6 +12,8 @@ export const StyledFooter = styled.div`
     font-size: .8rem;
 
     height: 100%;
+
+    padding-top: ${theme.s(4)};
 `
 
 export const StyledFooterWrapper = styled.div`
@@ -92,6 +94,7 @@ export const StyledFooterNavItem = styled.li`
             }
         }
     ` : ``}
+    ${props => props.isSpecial ? theme.specialLink : ``}
 `
 
 export const StyledCopyright = styled.div`

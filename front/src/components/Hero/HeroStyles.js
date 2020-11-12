@@ -248,3 +248,23 @@ export const StyledCountdown = styled.div`
         font-size: 1rem;
     }
 `
+
+export const StyledRow = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    & > a {
+        margin-top: ${theme.s(2)};
+    }
+
+    @media ${above.tablet} {
+        flex-direction: row;
+        align-items: center;
+
+        & > a {
+            margin-top: 0;
+            margin-left: ${theme.s(2)};
+        }
+    }
+`

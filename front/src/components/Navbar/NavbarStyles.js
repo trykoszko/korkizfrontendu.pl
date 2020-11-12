@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import {
     theme
@@ -9,9 +9,9 @@ import {
 } from '../../helpers/breakpoints'
 
 export const StyledNavbarWrapper = styled.header`
-    position: absolute;
+    /* position: absolute;
     top: 0;
-    left: 0;
+    left: 0; */
 
     width: 100%;
     height: auto;
@@ -19,6 +19,8 @@ export const StyledNavbarWrapper = styled.header`
     z-index: 900;
 
     background-color: ${theme.colorBeige};
+
+    ${props => props.bg ? css`background-color: ${props.bg};` : ''}
 
     a {
         margin: 0;
@@ -47,7 +49,7 @@ export const StyledNav = styled.ul`
     margin: ${theme.s()} 0;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
@@ -61,6 +63,8 @@ export const StyledNav = styled.ul`
     }
 
     @media ${above.mobile} {
+        flex-direction: row;
+
         & > li {
             &:last-child {
                 margin-right: 0;

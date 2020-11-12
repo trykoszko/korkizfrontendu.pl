@@ -19,10 +19,12 @@ import {
     StyledHero,
     StyledHeroContent,
     StyledHeroContentWrapper,
-    // StyledUl
+    // StyledUl,
+    StyledRow
 } from './HeroStyles'
 
 import StyledStrong from '../StyledStrong/StyledStrong.jsx'
+import BtnLink from '../BtnLink/BtnLink.jsx'
 
 import logo from '../../../static/logo.svg'
 import bg_hero from '../../../static/bg_hero.svg'
@@ -48,7 +50,7 @@ const Hero = () => {
     const [clientY, setClientY] = useState(0)
 
     const [remaining, setRemaining] = useState(`-- dni, -- godzin, -- minut i -- sekund`)
-    const deadline = '2020-11-14'
+    const deadline = '2020/11/14 11:00:00'
     useEffect(() => {
         const interval = setInterval(() => {
             const {
@@ -86,15 +88,23 @@ const Hero = () => {
                                 <strong>Korki z Front-endu</strong> to zupełnie nowy program nauki tworzenia stron internetowych, w którym przyswajasz tylko tę wiedzę, która jak najszybciej pozwoli Ci zacząć pracę w IT, na stanowisku <strong>Junior Front-end Developer</strong>.
                             </p>
                             <p>
-                                Do otwarcia zapisów pozostało <Countdown remaining={remaining} />.
+                                Do otwarcia zapisów pozostał(y) <Countdown remaining={remaining} />.
                             </p>
                             <p>
                                 <strong>Zapisz się do newslettera</strong> by otrzymywać informacje na bieżąco.
                             </p>
+                            <p>
+                                Albo zajrzyj na stronę <strong>rejestracji</strong>, może już czynne!
+                            </p>
                         </StyledDesc>
-                        <NewsletterToggler>
-                            Chcę dołączyć do newslettera!
-                        </NewsletterToggler>
+                        <StyledRow>
+                            <NewsletterToggler>
+                                Chcę dołączyć do newslettera!
+                            </NewsletterToggler>
+                            <BtnLink href="/register">
+                                Rejestracja!
+                            </BtnLink>
+                        </StyledRow>
                     </StyledHeroContentWrapper>
                 </StyledHeroContent>
                 <StyledBgColor top={theme.s(12 + (clientY * 0.003))} right={theme.s(10 - (clientX * 0.001))} dimensions="10vw" bg={theme.colorOrange} />

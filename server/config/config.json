@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "",
-    "database": "sors_korki_dev",
+    "database": "korki_dev",
     "host": "localhost",
     "dialect": "mysql"
   },

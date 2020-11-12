@@ -26,7 +26,8 @@ module.exports = {
       options: {
         fonts: [
           `Roboto Mono\:400,700`,
-          `Work Sans\:400,700`
+          `Work Sans\:400,700`,
+          `Kalam\:400`
         ],
         display: 'swap'
       }

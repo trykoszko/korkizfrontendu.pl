@@ -26,10 +26,12 @@ export const StyledContainer = styled.div`
     ${props => css`justify-content: ${props.justifyContent ? props.justifyContent : 'flex-start'};`}
 
     ${props => css`padding-top: ${theme.s(props.py / 2)}; padding-bottom: ${theme.s(props.py / 2)};`}
+    ${props => css`padding-top: ${theme.s(props.pt / 2)};`}
     ${props => css`padding-bottom: ${theme.s(props.pb / 2)};`}
 
     @media ${above.tablet} {
         ${props => css`padding-top: ${theme.s(props.py)}; padding-bottom: ${theme.s(props.py)};`}
+        ${props => css`padding-top: ${theme.s(props.pt)};`}
         ${props => css`padding-bottom: ${theme.s(props.pb)};`}
     }
     @media ${under.tablet} {

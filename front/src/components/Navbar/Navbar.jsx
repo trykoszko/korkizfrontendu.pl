@@ -21,9 +21,9 @@ import MenuItem from '../MenuItem/MenuItem.jsx'
 
 import logo from '../../../static/logo.svg'
 
-const Navbar = ({ currentPath }) => {
+const Navbar = ({ currentPath, bg }) => {
     return (
-        <StyledNavbarWrapper>
+        <StyledNavbarWrapper bg={bg}>
             <Container>
                 <StyledNavbar>
                     <StyledLogoWrapper href="/">
@@ -31,7 +31,7 @@ const Navbar = ({ currentPath }) => {
                         <StyledLogoDesc><span>Korki z</span> <span>Front-endu</span></StyledLogoDesc>
                     </StyledLogoWrapper>
                     <StyledNav>
-                        {menuItems ? menuItems.map(item => <MenuItem key={item.id} currentPath={currentPath} id={item.id} isCurrent={item.isCurrent} url={item.url} title={item.title} />) : ''}
+                        {menuItems ? menuItems.map(item => <MenuItem key={item.id} currentPath={currentPath} id={item.id} isCurrent={item.isCurrent} isSpecial={item.isSpecial} url={item.url} title={item.title} />) : ''}
                     </StyledNav>
                 </StyledNavbar>
             </Container>
