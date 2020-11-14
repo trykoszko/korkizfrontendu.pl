@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import queryString from 'query-string'
 
 import {
   theme
@@ -30,6 +31,16 @@ const getTimeRemaining = endtime => {
 export default function Regulamin({ path }) {
   const [isDue, setIsDue] = useState(false)
   const [remaining, setRemaining] = useState(`-- dni, -- godzin, -- minut i -- sekund`)
+  const [isDev, setIsDev] = useState(false)
+
+  useEffect(() => {
+    const qs = queryString.parse(window.location.search)
+    if ('_allowDev' in qs) {
+      if (qs._allowDev === 'yes') {
+        setIsDev(true)
+      }
+    }
+  }, [])
 
   const deadline = '2020/11/14 11:00:00'
   const dateEnd = Date.parse(deadline)
@@ -59,15 +70,15 @@ export default function Regulamin({ path }) {
         <Container narrow={true} pt="12" flexDirection="column" alignItems="stretch" justifyContent="flex-start">
           <ContentContainer>
             <h1>Rejestracja</h1>
-            {/* {isDue ? <p>
+            {isDue ? <p>
               Użyj poniższego formularza by założyć swoje konto na korkach.
               <br />
               Po założeniu konta będziesz mógł zarządzać swoją subskrypcją.
-            </p> : ''} */}
+            </p> : ''}
           </ContentContainer>
         </Container>
       </AutoHeightSection>
-      {/* {isDue ? <RegisterForm /> : ( */}
+      {isDev || isDue ? <RegisterForm /> : (
         <AutoHeightSection bg={theme.colorBeigeAlt}>
           <Container narrow={true} ptMobile="4" pt="4" flexDirection="column" alignItems="stretch" justifyContent="flex-start">
             <ContentContainer>
@@ -79,7 +90,7 @@ export default function Regulamin({ path }) {
             </ContentContainer>
           </Container>
         </AutoHeightSection>
-      {/* )} */}
+      )}
     </Layout>
   )
 }

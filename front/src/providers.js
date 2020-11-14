@@ -3,7 +3,7 @@ import axios from 'axios'
 const providers = {
     post: {
         submitNewsletter: async data => {
-            return await axios.post('http://localhost:3000/register', {
+            return await axios.post('https://crm.doos.pl/register', {
                 params: data
             })
         }

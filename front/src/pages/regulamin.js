@@ -29,7 +29,7 @@ export default function Regulamin({ path }) {
                 Podane dane będą przetwarzane na podstawie art. 6 ust. 1 lit. a) Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych osobowych) („Rozporządzenie”);
               </li>
               <li>
-                Dane osobowe będą przechowywane przez okres subskrypcji newslettera, a także okres realizacji polityki marketingowej Administratora;
+                Dane osobowe będą przechowywane przez okres subskrypcji newslettera, a także okres realizacji polityki marketingowej Administratora lub do 6 miesięcy po zakończeniu szkolenia;
               </li>
               <li>
                 Przysługuje Ci prawo żądania od Administratora dostępu do danych osobowych dotyczących Twojej osoby, ich sprostowania, usunięcia lub ograniczenia przetwarzania;
@@ -44,7 +44,7 @@ export default function Regulamin({ path }) {
                 Dane osobowe pochodzą od Ciebie, czyli osoby, których dane te dotyczą;
               </li>
               <li>
-                Podanie danych jest dobrowolne, lecz niezbędne do otrzymywania newslettera, brak podania danych osobowych uniemożliwia otrzymywanie newslettera;
+                Podanie danych jest dobrowolne, lecz niezbędne do otrzymywania newslettera lub brania udziału w szkoleniu, brak podania danych osobowych uniemożliwia otrzymywanie newslettera lub brania udziału w szkoleniu;
               </li>
               <li>
                 Twoje dane będą przetwarzane w celu marketingowym oraz w celu dokonywania pomiarów, które pozwolą Administratorowi na udoskonalenie świadczonych przez niego usług;
