@@ -67,8 +67,6 @@ export const StyledFormGroup = styled.div`
 `
 
 export const StyledLabel = styled.label`
-    ${props => props.width ? css`width: ${props.width};` : css`width: 100%;`}
-
     margin-bottom: ${theme.s()};
 
     display: flex;
@@ -80,6 +78,8 @@ export const StyledLabel = styled.label`
     padding-bottom: ${theme.s(2)};
 
     position: relative;
+
+    width: 100%;
 
     small {
         position: absolute;
@@ -108,6 +108,9 @@ export const StyledLabel = styled.label`
             border-bottom: 1px solid red;
         }
     ` : ''}
+    @media ${above.mobile} {
+        ${props => props.width ? css`width: ${props.width};` : css`width: 100%;`}
+    }
 `
 
 export const StyledSelect = styled.select`
@@ -142,5 +145,8 @@ export const StyledCheckboxWrapper = styled.div`
     }
     input {
         border: none;
+
+        width: ${theme.s(2)};
+        flex-shrink: 0;
     }
 `

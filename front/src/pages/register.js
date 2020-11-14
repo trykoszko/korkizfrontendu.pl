@@ -68,7 +68,7 @@ export default function Regulamin({ path }) {
       <Navbar bg={theme.colorBeige} />
       <AutoHeightSection bg={theme.colorBeige}>
         <Container narrow={true} pt="12" flexDirection="column" alignItems="stretch" justifyContent="flex-start">
-          <ContentContainer>
+          <ContentContainer ptMobile="4">
             <h1>Rejestracja</h1>
             {isDev || isDue ? <p>
               Użyj poniższego formularza by założyć swoje konto na Korkach z Front-endu.
@@ -84,7 +84,7 @@ export default function Regulamin({ path }) {
       </AutoHeightSection>
       {isDev || isDue ? <RegisterForm /> : (
         <AutoHeightSection bg={theme.colorBeigeAlt}>
-          <Container narrow={true} ptMobile="4" pt="4" flexDirection="column" alignItems="stretch" justifyContent="flex-start">
+          <Container narrow={true} pt="4" flexDirection="column" alignItems="stretch" justifyContent="flex-start">
             <ContentContainer>
               <p>
                 Rejestracja nie jest jeszcze czynna.

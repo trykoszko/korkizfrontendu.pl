@@ -109,7 +109,7 @@ const RegisterForm = () => {
                   </AutoHeightSection>
                 )}
                 <AutoHeightSection bg={theme.colorBeigeAlt} isHidden={isSent && isSuccess}>
-                  <Container narrow={true} pt="5" flexDirection="column" alignItems="stretch" justifyContent="flex-start">
+                  <Container narrow={true} ptMobile="5" pt="5" flexDirection="column" alignItems="stretch" justifyContent="flex-start">
                     <StyledFormGroup isVisible isUnderlined>
                       <h2>
                         Wpisz swój e-mail i hasło
@@ -155,7 +155,7 @@ const RegisterForm = () => {
                   </Container>
                 </AutoHeightSection>
                 <AutoHeightSection bg="white" isHidden={isSent && isSuccess}>
-                  <Container narrow={true} pt="7" flexDirection="column" alignItems="stretch" justifyContent="flex-start">
+                  <Container narrow={true} ptMobile="5" pt="7" flexDirection="column" alignItems="stretch" justifyContent="flex-start">
                     <h2>
                       Uzupełnij dane personalne
                     </h2>
@@ -341,7 +341,7 @@ const RegisterForm = () => {
                         <StyledCheckboxWrapper>
                           <Field type="checkbox" name="allowRodo" />
                           <span>
-                            Wyrażam zgodę na przetwarzanie moich danych osobowych, zgodnie z <Link to="/regulamin">polityką prywatności i regulaminem</Link>.
+                            Wyrażam zgodę na przetwarzanie moich danych osobowych, zgodnie z <Link to="/regulamin">polityką prywatności i regulaminem</Link>. *
                           </span>
                         </StyledCheckboxWrapper>
                         {touched.allowRodo && errors.allowRodo && (
@@ -354,7 +354,7 @@ const RegisterForm = () => {
                         <StyledCheckboxWrapper>
                           <Field type="checkbox" name="allowTerms" />
                           <span>
-                            Przeczytałem(am) i akceptuję <Link to="/regulamin">regulamin</Link>.
+                            Przeczytałem(am) i akceptuję <Link to="/regulamin">regulamin</Link>. *
                           </span>
                         </StyledCheckboxWrapper>
                         {touched.allowTerms && errors.allowTerms && (
