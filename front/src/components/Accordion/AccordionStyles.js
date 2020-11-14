@@ -115,10 +115,15 @@ export const StyledAccordionContent = styled.div`
     ${theme.transitions.quick};
 
     padding-bottom: 10px;
+    padding-left: ${theme.s()};
+    padding-right: ${theme.s()};
 
     ${props => props.isOpen ? css`
-        max-height: 500px;
-        margin: ${theme.s(2)} 0;
+        max-height: 1000px;
+
+        margin-top: ${theme.s(4)};
+        padding-bottom: ${theme.s(4)};
+
         opacity: 1;
     ` : ''}
 `

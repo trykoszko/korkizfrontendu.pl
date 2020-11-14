@@ -48,9 +48,12 @@ const getTimeRemaining = endtime => {
 const Hero = () => {
     const [clientX, setClientX] = useState(0)
     const [clientY, setClientY] = useState(0)
+    const [isDue, setIsDue] = useState(false)
+
+    const deadline = '2020/11/14 11:00:00'
+    const dateEnd = Date.parse(deadline)
 
     const [remaining, setRemaining] = useState(`-- dni, -- godzin, -- minut i -- sekund`)
-    const deadline = '2020/11/14 11:00:00'
     useEffect(() => {
         const interval = setInterval(() => {
             const {
@@ -60,6 +63,10 @@ const Hero = () => {
                 seconds
             } = getTimeRemaining(deadline)
             setRemaining(`${days} dni, ${hours} godzin, ${minutes} minut i ${seconds} sekund`)
+            const dateNow = Date.parse(new Date())
+            if (dateNow > dateEnd) {
+                setIsDue(true)
+            }
         }, 1000)
         return () => clearInterval(interval)
     }, [remaining])
@@ -87,15 +94,25 @@ const Hero = () => {
                             <p>
                                 <strong>Korki z Front-endu</strong> to zupełnie nowy program nauki tworzenia stron internetowych, w którym przyswajasz tylko tę wiedzę, która jak najszybciej pozwoli Ci zacząć pracę w IT, na stanowisku <strong>Junior Front-end Developer</strong>.
                             </p>
-                            <p>
-                                Do otwarcia zapisów pozostał(y) <Countdown remaining={remaining} />.
-                            </p>
-                            <p>
-                                <strong>Zapisz się do newslettera</strong> by otrzymywać informacje na bieżąco.
-                            </p>
-                            <p>
-                                Albo zajrzyj na stronę <strong>rejestracji</strong>, może już czynne!
-                            </p>
+                            {isDue ? (
+                                <>
+                                    <p>
+                                        Zapisy już czynne! Zarejestruj się już teraz!
+                                    </p>
+                                </>
+                            ) : (
+                                <>
+                                    <p>
+                                        Do otwarcia zapisów pozostał(y) <Countdown remaining={remaining} />.
+                                    </p>
+                                    <p>
+                                        <strong>Zapisz się do newslettera</strong> by otrzymywać informacje na bieżąco.
+                                    </p>
+                                    <p>
+                                        Albo zajrzyj na stronę <strong>rejestracji</strong>, może już czynne!
+                                    </p>
+                                </>
+                            )}
                         </StyledDesc>
                         <StyledRow>
                             <NewsletterToggler>

@@ -1,9 +1,11 @@
+import { Link } from 'gatsby'
+
 import styled, { css } from 'styled-components'
 
 import { theme } from '../../constants'
 import { above } from '../../helpers/breakpoints'
 
-export const StyledBtn = styled.a`
+export const StyledBtn = styled(Link)`
     border: none;
     margin: 0;
     padding: 0;

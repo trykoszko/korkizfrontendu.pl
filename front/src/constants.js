@@ -128,64 +128,81 @@ export const socialMenuItems = [
 
 export const faqAccordionItems = [
     {
+        title: 'Co to są Korki z Front-endu?',
+        content: `
+        <h3>Korki z Front-endu to:</h3>
+        <ul>
+            <li>możliwość uczestnictwa z brakiem jakiejkolwiek wiedzy</li>
+            <li>dostęp do sprawdzonych materiałów naukowych</li>
+            <li>uporządkowana ścieżka kariery</li>
+            <li>mentoring z dostępnością mentora 24/7</li>
+            <li>dostęp do czatu grupowego</li>
+            <li>możliwość obserwowania postępów na tle grupy</li>
+            <li>projekty grupowe oraz indywidualne ze wsparciem mentora</li>
+            <li>niebootcampowa, luźna atmosfera</li>
+            <li>zajęcia odbywające się kiedy chcesz i trwające ile chcesz</li>
+            <li>brak sztywnego harmonogramu dziennego</li>
+        </ul>`
+    },
+    {
+        title: 'Ile to tak właściwie kosztuje?',
+        content: '<p>Miesiąc uczestnictwa w Korkach z Front-endu kosztuje <strong>349zł</strong>.</p>'
+    },
+    {
         title: 'Co powinienem umieć przed przystąpieniem do programu?',
-        content: 'Dosłownie nic. Program Korki z Front-endu skupia się na nauce od poziomu zerowego. Jeżeli już coś umiesz - bardzo fajnie! Jednocześnie brak wiedzy Cię nie dyskwalifikuje.',
+        content: '<p>Dosłownie nic. Program Korki z Front-endu skupia się na nauce od poziomu zerowego. Jeżeli już coś umiesz - bardzo fajnie! Jednocześnie brak wiedzy Cię nie dyskwalifikuje.</p>'
     },
     {
         title: 'Kiedy rusza nowy rok szkolny?',
-        content: 'Nowy "rok szkolny" #korków prawdopodobnie ruszy 12.12.2020. Data ta może ulec zmianie, ale jeżeli jesteś zapisany do mojego newslettera, o wszystkim dowiesz się na bieżąco. Możemy też zmienić tę datę na potrzeby grupy.'
+        content: '<p>Nowy "rok szkolny" #korków prawdopodobnie ruszy 12.12.2020. Data ta może ulec zmianie, ale jeżeli jesteś zapisany do mojego newslettera, o wszystkim dowiesz się na bieżąco. Możemy też zmienić tę datę na potrzeby grupy.</p>'
     },
     {
         title: 'Dlaczego #korki a nie bootcamp?',
-        content: '#korki nie są drogim bootcampem. Wiem, że ciężko jest wziąć kilku tygodni wolnego w pracy lub się zwolnić. Nauka w programie #korków to samodzielna nauka pod okiem mentora, dzięki czemu nie jesteś ograniczony codziennym harmonogramem. To od Ciebie zależy, ile się danego dnia nauczysz.'
+        content: '<p>#korki nie są drogim bootcampem. Wiem, że ciężko jest wziąć kilku tygodni wolnego w pracy lub się zwolnić. Nauka w programie #korków to samodzielna nauka pod okiem mentora, dzięki czemu nie jesteś ograniczony codziennym harmonogramem. To od Ciebie zależy, ile się danego dnia nauczysz.</p>'
     },
     {
         title: 'Czy po #korkach będę gotowy na rozpoczęcie pracy w IT?',
-        content: 'Tak. Korki z Front-endu przygotują Cię do pierwszej pracy. Stanowisko, jakie będziesz mógł objąć to Intern Front-end Developer (slicer) lub Junior Front-end Developer (slicer). Razem przygotujemy też CV oraz dwa cenne projekty do portfolio.'
+        content: '<p>Tak. Korki z Front-endu przygotują Cię do pierwszej pracy. Stanowisko, jakie będziesz mógł objąć to Intern Front-end Developer (slicer) lub Junior Front-end Developer (slicer). Razem przygotujemy też CV oraz dwa cenne projekty do portfolio.</p>'
     },
     {
         title: 'W jaki sposób, jako uczestnik, mogę skonsultować się z grupą lub mentorem?',
-        content: 'Przez cały "rok szkolny" będziesz miał kontakt na komunikatorze Discord i Zoom, zarówno z grupą jak i z mentorem.'
+        content: '<p>Przez cały "rok szkolny" będziesz miał kontakt na komunikatorze Slack i Zoom, zarówno z grupą jak i z mentorem.</p>'
     },
     {
         title: 'Czy konsultacje z mentorem są płatne?',
-        content: 'Konsultacje z mentorem są bezpłatne. Dodatkowo co dwa tygodnie w uzgodniony dzień spotykamy się na wideokonferencji i robimy "update", czyli podsumowanie grupowe.'
+        content: '<p>Konsultacje z mentorem są bezpłatne. Dodatkowo co dwa tygodnie w uzgodniony dzień spotykamy się na wideokonferencji i robimy "update", czyli podsumowanie grupowe.</p>'
     },
     {
         title: 'W jakich godzinach mogę kontaktować się z mentorem?',
-        content: '24 godziny na dobę.'
+        content: '<p>24 godziny na dobę.</p>'
     },
     {
         title: 'Ile trwa program #korków?',
-        content: 'Program Korków z Front-endu trwa około 6 miesięcy. W zależności od poziomu grupy, możemy przyspieszyć lub przedłużyć program #korków.'
+        content: '<p>Program Korków z Front-endu trwa około 6 miesięcy. W zależności od poziomu grupy, możemy przyspieszyć lub przedłużyć program #korków.</p>'
     },
     {
         title: 'Czemu miałbym dołączyć do #korków, zamiast uczyć się samemu?',
-        content: 'Ponieważ program Korków z Front-endu jest sprawdzony i konkretny. Wyznaczona przeze mnie ścieżka oczywiście nie jest jedyną słuszną - ale jest ona sprawdzona. Jest to po prostu ścieżka, którą sam podążałem.'
+        content: '<p>Ponieważ program Korków z Front-endu jest sprawdzony i konkretny. Wyznaczona przeze mnie ścieżka oczywiście nie jest jedyną słuszną - ale jest ona sprawdzona. Jest to po prostu ścieżka, którą sam podążałem.</p>'
     },
-    // {
-    //     title: 'Ile to tak właściwie kosztuje?',
-    //     content: 'Miesiąc uczestnictwa w Korkach z Front-endu kosztuje 299zł. Cały "rok szkolny", czyli 6 miesięcy nauki z góry to kwota 1999zł'
-    // },
     {
         title: 'Czy jeżeli #korki nie będą dla mnie satysfakcjonujące, mogę liczyć na zwrot pieniędzy?',
-        content: 'Tak. Od momentu zapisów masz 10 dni na rezygnację z programu z pełnym zwrotem gotówki w przeciągu tygodnia.'
+        content: '<p>Tak. Od momentu zapisów masz 10 dni na rezygnację z programu z pełnym zwrotem gotówki w przeciągu tygodnia.</p>'
     },
     {
         title: 'Czy nie jestem na to zbyt młody / stary?',
-        content: 'Za młody? Nie! Sam pierwsze kroki w programowaniu stawiałem w wieku ok. 12 lat. Za stary? Nie! Mam znajomych-programistów w przeróżnym wieku, w tym w wieku moich rodziców (mamo, tato, pozdrawiam 💙).'
+        content: '<p>Za młody? Nie! Sam pierwsze kroki w programowaniu stawiałem w wieku ok. 12 lat. Za stary? Nie! Mam znajomych-programistów w przeróżnym wieku, w tym w wieku moich rodziców (mamo, tato, pozdrawiam 💙).</p>'
     },
     {
         title: 'Czy jest możliwe korzystanie z mentoringu, bez udziału w programie?',
-        content: 'Tak. Skontaktuj się ze mną by dowiedzieć się więcej.'
+        content: '<p>Tak. Skontaktuj się ze mną by dowiedzieć się więcej.</p>'
     },
     {
         title: 'Jak duże są grupy?',
-        content: 'Grupy są tworzone w zależności od poziomu uczestników. Zazwyczaj grupa liczy około 15 osób.'
+        content: '<p>Grupy są tworzone w zależności od poziomu uczestników. Zazwyczaj grupa liczy około 15 osób.</p>'
     },
     {
         title: 'Czy mogę zrezygnować w każdym momencie?',
-        content: 'Tak, ale powinieneś powiadomić mnie o rezygnacji co najmniej tydzień przed końcem aktualnego miesiąca rozliczeniowego. Opłacony miesiąc nie podlega zwrotowi. Opłacony cały rok szkolny podlega zwrotowi proporcjonalnie do upłyniętego czasu.'
+        content: '<p>Tak, ale powinieneś powiadomić mnie o rezygnacji co najmniej tydzień przed końcem aktualnego miesiąca rozliczeniowego. Opłacony miesiąc nie podlega zwrotowi. Opłacony cały rok szkolny podlega zwrotowi proporcjonalnie do upłyniętego czasu.</p>'
     }
 ]
 

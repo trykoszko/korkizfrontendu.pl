@@ -75,6 +75,8 @@ export default function Regulamin({ path }) {
               <br />
               Po założeniu konta będziesz mógł zarządzać swoją subskrypcją i płatnościami.
               <br />
+              Cena korków to <strong>349 zł</strong> za miesiąc uczestnictwa.
+              <br />
               <small>(konto nie zobowiązuje do płatności i uczestnictwa w programie)</small>
             </p> : ''}
           </ContentContainer>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 import {
     StyledAccordion,
     StyledAccordionItem,
@@ -17,7 +18,7 @@ const AccordionHeader = ({ children, onClick, isOpen }) => {
         </StyledAccordionHeader>
     )
 }
-const AccordionContent = ({ children, isOpen }) => <StyledAccordionContent isOpen={isOpen}><p>{children}</p></StyledAccordionContent>
+const AccordionContent = ({ children, isOpen, dangerouslySetInnerHTML }) => <StyledAccordionContent dangerouslySetInnerHTML={dangerouslySetInnerHTML} isOpen={isOpen} />
 
 const AccordionChevron = ({ src }) => <StyledChevronWrapper><StyledChevron src={src} /></StyledChevronWrapper>
 
@@ -34,9 +35,7 @@ const AccordionItem = ({ title, content, itemIndex }) => {
                 <strong>{title}</strong>
                 <AccordionChevron src={chevron_down} />
             </AccordionHeader>
-            <AccordionContent isOpen={isOpen}>
-                {content}
-            </AccordionContent>
+            <AccordionContent isOpen={isOpen} dangerouslySetInnerHTML={{ __html: content }} />
         </StyledAccordionItem>
     )
 }
