@@ -32,6 +32,16 @@ export const StyledContentContainer = styled.div`
         margin-bottom: 6%;
     } */
 
+    hr {
+        display: block;
+
+        width: 100%;
+        height: 0;
+
+        border: none;
+        border-bottom: 1px solid ${theme.colorDefault};
+    }
+
     a {
         border-bottom: 2px solid ${theme.colorPrimary};
 

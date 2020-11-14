@@ -44,10 +44,10 @@ export const validators = {
             errors.email = 'Nieprawidłowy adres e-mail'
         }
         if (!values.allowRodo) {
-            errors.allowRodo = 'Musisz zaakceptować regulamin RODO'
+            errors.allowRodo = 'Musisz wyrazić zgodę na przetwarzanie danych osobowych.'
         }
         if (!values.allowTerms) {
-            errors.allowTerms = 'Musisz zaakceptować treść regulaminu korków'
+            errors.allowTerms = 'Musisz zaakceptować treść regulaminu.'
         }
         return errors
     }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Formik, Field } from 'formik'
+import { Link } from 'gatsby'
 
 import {
   theme
@@ -340,7 +341,7 @@ const RegisterForm = () => {
                         <StyledCheckboxWrapper>
                           <Field type="checkbox" name="allowRodo" />
                           <span>
-                            Zezwalam na RODO Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis repellendus et cupiditate porro praesentium animi maxime, tempora explicabo aliquam dolores aperiam facere at nobis, fugiat asperiores culpa sequi! Sapiente, ipsam. *
+                            Wyrażam zgodę na przetwarzanie moich danych osobowych, zgodnie z <Link to="/regulamin">polityką prywatności i regulaminem</Link>.
                           </span>
                         </StyledCheckboxWrapper>
                         {touched.allowRodo && errors.allowRodo && (
@@ -353,7 +354,7 @@ const RegisterForm = () => {
                         <StyledCheckboxWrapper>
                           <Field type="checkbox" name="allowTerms" />
                           <span>
-                            Zezwalam na regulamin Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet voluptas nisi, corporis consequuntur eius quam id ex eligendi omnis suscipit nam repellendus ut rem vitae. Id laborum distinctio rerum dolor. *
+                            Przeczytałem(am) i akceptuję <Link to="/regulamin">regulamin</Link>.
                           </span>
                         </StyledCheckboxWrapper>
                         {touched.allowTerms && errors.allowTerms && (

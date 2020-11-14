@@ -70,10 +70,12 @@ export default function Regulamin({ path }) {
         <Container narrow={true} pt="12" flexDirection="column" alignItems="stretch" justifyContent="flex-start">
           <ContentContainer>
             <h1>Rejestracja</h1>
-            {isDue ? <p>
-              Użyj poniższego formularza by założyć swoje konto na korkach.
+            {isDev || isDue ? <p>
+              Użyj poniższego formularza by założyć swoje konto na Korkach z Front-endu.
               <br />
-              Po założeniu konta będziesz mógł zarządzać swoją subskrypcją.
+              Po założeniu konta będziesz mógł zarządzać swoją subskrypcją i płatnościami.
+              <br />
+              <small>(konto nie zobowiązuje do płatności i uczestnictwa w programie)</small>
             </p> : ''}
           </ContentContainer>
         </Container>
